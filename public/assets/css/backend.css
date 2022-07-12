@@ -19738,7 +19738,9 @@ button.close-popup {
   height: 400px; }
 
 #layout-1-chart-01 {
-  min-height: 300px !important; }
+  padding: -50px !important;
+  margin: -50px !important;
+  min-height: 300px !important;}
 
 #layout-1-chart-06 {
   min-height: 310px !important; }

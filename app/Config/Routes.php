@@ -37,6 +37,22 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'BerandaController::index', ['as' => 'beranda_index']);
 
+// Otentikasi
+$routes->get('login', 'OtentikasiController::login', ['as' => 'otentikasi_login']);
+
+// User Admin
+$routes->group('admin', function ($routes){
+    $routes->get('dashboard', 'BerandaController::admin_dashboard', ['as' => 'dashboard_admin_index']);
+});
+
+$routes->group('guru', function($routes){
+    $routes->get('dashboard', 'BerandaController::guru_dashboard', ['as' => 'dashboard_guru_index']);
+});
+
+$routes->group('siswa', function($routes){
+    $routes->get('dashboard', 'BerandaController::siswa_dashboard', ['as' => 'dashboard_siswa_index']);
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
