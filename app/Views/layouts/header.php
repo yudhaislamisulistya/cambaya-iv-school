@@ -238,7 +238,7 @@
                                                             <h3>Bill Yerds</h3>
                                                             <div class="d-flex flex-wrap">
                                                                 <p class="mb-1">Web designer</p><a
-                                                                    href="auth-sign-in.html"
+                                                                    href="<?= route_to('otentikasi_logout') ?>"
                                                                     class=" ml-3 rtl-mr-3 rtl-ml-0">Sign Out</a>
                                                             </div>
                                                         </div>

@@ -39,17 +39,20 @@
                             <div class="col-lg-6">
                                 <h2 class="mb-2">Sign In</h2>
                                 <p>To Keep connected with us please login with your personal info.</p>
-                                <form>
+                                <?php if(isset($validation)) : ?>
+                                <span class="text-danger"><?= $validation->listErrors() ?></span>
+                                <?php endif; ?>
+                                <form action="<?= route_to('otentikasi_login_post') ?>" method="POST">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="floating-label form-group">
-                                                <input class="floating-input form-control" type="email" placeholder=" ">
+                                                <input class="floating-input form-control" name="email" type="email" placeholder=" ">
                                                 <label>Email</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="floating-label form-group">
-                                                <input class="floating-input form-control" type="password"
+                                                <input class="floating-input form-control" name="password" type="password"
                                                     placeholder=" ">
                                                 <label>Password</label>
                                             </div>

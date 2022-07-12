@@ -35,10 +35,11 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'BerandaController::index', ['as' => 'beranda_index']);
-
 // Otentikasi
-$routes->get('login', 'OtentikasiController::login', ['as' => 'otentikasi_login']);
+$routes->get('/', 'OtentikasiController::login', ['as' => 'otentikasi_login']);
+$routes->post('login', 'OtentikasiController::login_post', ['as' => 'otentikasi_login_post']);
+$routes->get('logout', 'OtentikasiController::logout', ['as' => 'otentikasi_logout']);
+
 
 // User Admin
 $routes->group('admin', function ($routes){

@@ -42,7 +42,13 @@
                 </div>
             </div>
             <div class="data-scrollbar" data-scroll="1">
-                <?= $this->include('layouts/menu-admin') ?>
+                <?php if(session()->get('role') == 1){ ?>
+                    <?= $this->include('layouts/menu-siswa') ?>
+                <?php }elseif(session()->get('role') == 2){ ?>
+                    <?= $this->include('layouts/menu-guru') ?>
+                <?php }elseif(session()->get('role') == 3){ ?>
+                    <?= $this->include('layouts/menu-admin') ?>
+                <?php } ?>
                 <div id="sidebar-bottom" class="position-relative sidebar-bottom">
                     <div class="card bg-primary rounded">
                         <div class="card-body">
