@@ -12,4 +12,10 @@ class BerandaController extends BaseController
     public function admin_dashboard(){
         return view('admin/dashboard');
     }
+    public function guru_dashboard(){
+        return view('guru/dashboard');
+    }
+    public function siswa_dashboard(){
+        return view('siswa/dashboard');
+    }
 }

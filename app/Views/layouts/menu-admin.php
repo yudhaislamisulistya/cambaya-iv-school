@@ -3,7 +3,7 @@
     <ul id="iq-sidebar-toggle" class="iq-menu">
         <li class="active">
             <a href="../backend/index.html">
-                <i class="lab la-blogger-b"></i><span>Dashboard 1</span>
+                <i class="lab la-blogger-b"></i><span>Dashboard</span>
             </a>
         </li>
         <li class="mt-2 mb-2">
