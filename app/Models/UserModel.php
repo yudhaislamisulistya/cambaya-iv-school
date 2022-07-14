@@ -53,4 +53,12 @@ class UserModel extends Model
             ->get();
         return $query;
     }
+
+    public function getGuru(){
+        $query = $this->table('guru')
+        ->join('guru', 'users.id_user = guru.id_user')
+        ->where('users.role', '2')
+        ->get();
+    return $query;
+    }
 }

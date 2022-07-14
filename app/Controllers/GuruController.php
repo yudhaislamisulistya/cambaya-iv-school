@@ -107,4 +107,31 @@ class GuruController extends BaseController
             return redirect()->back()->with('status', 'failed');
         }
     }
+
+    public function guru_index(){
+        $data = $this->userModel->getGuru()->getResult();
+        return view('admin/guru', compact('data'));
+}
+    public function guru_update(){
+        try {
+            $data = $this->request->getVar();
+            $data['tempat_tanggal_lahir'] = $data['tempat_lahir'].', '.$data['tanggal_lahir'];
+            $this->userModel->update($data['id_user'], $data);
+            $this->guruModel->set($data)->where('id_user', $data['id_user'])->update();
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception  $th) {
+            var_dump($th);
+            die();
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
+    public function guru_delete(){
+        try {
+            $data = $this->request->getVar();
+            $this->userModel->delete($data['id_user']);
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
 }

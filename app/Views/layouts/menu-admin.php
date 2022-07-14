@@ -37,7 +37,7 @@
             </a>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('guru_admin_index') ?>">
                 <i class="las la-user-check"></i><span>Data Guru</span>
             </a>
         </li>
