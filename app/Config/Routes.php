@@ -44,6 +44,17 @@ $routes->get('logout', 'OtentikasiController::logout', ['as' => 'otentikasi_logo
 // User Admin
 $routes->group('admin', function ($routes){
     $routes->get('dashboard', 'BerandaController::admin_dashboard', ['as' => 'dashboard_admin_index']);
+
+    // Manajemen User Guru
+    $routes->get('user/guru', 'GuruController::index', ['as' => 'user_guru_admin_index']);
+    $routes->post('user/guru/save', 'GuruController::save', ['as' => 'user_guru_admin_save']);
+    $routes->post('user/guru/update', 'GuruController::update', ['as' => 'user_guru_admin_update']);
+    $routes->post('user/guru/delete', 'GuruController::delete', ['as' => 'user_guru_admin_delete']);
+    // Manajemen User Siswa
+    $routes->get('user/siswa', 'SiswaController::index', ['as' => 'user_siswa_admin_index']);
+    $routes->post('user/siswa/save', 'SiswaController::save', ['as' => 'user_siswa_admin_save']);
+    $routes->post('user/siswa/update', 'SiswaController::update', ['as' => 'user_siswa_admin_update']);
+    $routes->post('user/siswa/delete', 'SiswaController::delete', ['as' => 'user_siswa_admin_delete']);
 });
 
 $routes->group('guru', function($routes){

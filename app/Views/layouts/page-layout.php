@@ -136,6 +136,8 @@
 
     <!-- app JavaScript -->
     <script src="<?= base_url() ?>/assets/js/app.js"></script>
+
+    <?= $this->renderSection('javascript') ?>
 </body>
 
 </html>

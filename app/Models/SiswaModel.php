@@ -4,22 +4,31 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class SiswaModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'users';
-    protected $primaryKey       = 'id_user';
+    protected $table            = 'siswa';
+    protected $primaryKey       = 'id_siswa';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nama_lengkap',
-        'email',
-        'password',
-        'plain_password',
-        'role'
+        'id_user',
+        'nis',
+        'tempat_tanggal_lahir',
+        'jenis_kelamin',
+        'agama',
+        'pendidikan_sebelumnya',
+        'alamat_peserta_didik',
+        'nama_orang_tua_ayah',
+        'nama_orang_tua_ibu',
+        'pekerjaan_orang_tua_ayah',
+        'pekerjaan_orang_tua_ibu',
+        'alamat_orang_tua_jalan',
+        'alamat_orang_tua_kelurahan',
+        'alamat_orang_tua_kecamatan',
     ];
 
     // Dates
@@ -45,12 +54,4 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function getSiswa(){
-        $query = $this->table('siswa')
-            ->join('siswa', 'users.id_user = siswa.id_user')
-            ->where('users.role', '1')
-            ->get();
-        return $query;
-    }
 }

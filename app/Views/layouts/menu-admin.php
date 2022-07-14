@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen User</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen User</span>
         </li>
         <li class=" ">
             <a href="#app" class="collapsed" data-toggle="collapse" aria-expanded="false">
@@ -17,19 +17,19 @@
             </a>
             <ul id="app" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                 <li class=" ">
-                    <a href="../app/chat.html">
+                    <a href="<?= route_to('user_guru_admin_index') ?>">
                         <i class="las la-user-shield"></i><span>Guru</span>
                     </a>
                 </li>
                 <li class=" ">
-                    <a href="../app/todo.html">
+                    <a href="<?= route_to('user_siswa_admin_index') ?>">
                         <i class="las la-user-graduate"></i><span>Siswa</span>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Guru</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Guru</span>
         </li>
         <li class=" ">
             <a href="../backend/index.html">
@@ -42,7 +42,7 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Siswa</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Siswa</span>
         </li>
         <li class=" ">
             <a href="../backend/index.html">
@@ -55,7 +55,7 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen
                 Pelajaran</span>
         </li>
         <li class=" ">
@@ -64,7 +64,7 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Jadwal</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Jadwal</span>
         </li>
         <li class=" ">
             <a href="../backend/index.html">

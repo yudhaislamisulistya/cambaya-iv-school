@@ -55,8 +55,6 @@ class OtentikasiController extends BaseController
             'id_user' => $user['id_user'],
             'nama_lengkap' => $user['nama_lengkap'],
             'email' => $user['email'],
-            'nohp' => $user['nohp'],
-            'alamat' => $user['alamat'],
             'role' => $user['role'],
             'isLoggedIn' => true
         ];
