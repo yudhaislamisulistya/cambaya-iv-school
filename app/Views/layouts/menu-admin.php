@@ -45,12 +45,12 @@
             <span id="sidebar-bottom" class="font-weight-bold">Manajemen Siswa</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="">
                 <i class="las la-book-open"></i><span>Kelas Siswa</span>
             </a>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('siswa_admin_index') ?>">
                 <i class="las la-database"></i><span>Data Siswa</span>
             </a>
         </li>

@@ -111,4 +111,28 @@ class SiswaController extends BaseController
             return redirect()->back()->with('status', 'failed');
         }
     }
+    public function siswa_index(){
+        $data = $this->userModel->getSiswa()->getResult();
+        return view('admin/siswa', compact('data'));
+    }
+    public function siswa_update(){
+        try {
+            $data = $this->request->getVar();
+            $data['tempat_tanggal_lahir'] = $data['tempat_lahir'].', '.$data['tanggal_lahir'];
+            $this->userModel->update($data['id_user'], $data);
+            $this->siswaModel->set($data)->where('id_user', $data['id_user'])->update();
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception  $th) {
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
+    public function siswa_delete(){
+        try {
+            $data = $this->request->getVar();
+            $this->userModel->delete($data['id_user']);
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
 }

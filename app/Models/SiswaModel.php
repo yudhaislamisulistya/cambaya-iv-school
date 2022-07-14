@@ -21,7 +21,7 @@ class SiswaModel extends Model
         'jenis_kelamin',
         'agama',
         'pendidikan_sebelumnya',
-        'alamat_peserta_didik',
+        'alamat',
         'nama_orang_tua_ayah',
         'nama_orang_tua_ibu',
         'pekerjaan_orang_tua_ayah',
