@@ -73,7 +73,7 @@
                                                         data-alamat-orang-tua-kecamatan="<?= $value->alamat_orang_tua_kecamatan?>"
                                                         >
                                                         <i class="las la-pen"></i>Edit</a>
-                                                <a href=" #" class="btn btn-success btn-sm btn-delete">
+                                                <a href="<?= route_to('siswa_admin_detail', $value->id_user) ?>" class="btn btn-success btn-sm">
                                                         <i class="las la-home"></i>Detail</a>
                                                 <a href=" #" class="btn btn-danger btn-sm btn-delete"
                                                         data-id="<?= $value->id_user?>">

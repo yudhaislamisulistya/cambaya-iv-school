@@ -54,6 +54,14 @@ class UserModel extends Model
         return $query;
     }
 
+    public function getSiswaById($id_user){
+        $query = $this->table('siswa')
+            ->join('siswa', 'users.id_user = siswa.id_user')
+            ->where('users.role', '1')
+            ->where('siswa.id_user', $id_user);
+        return $query;
+    }
+
     public function getGuru(){
         $query = $this->table('guru')
         ->join('guru', 'users.id_user = guru.id_user')

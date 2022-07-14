@@ -64,6 +64,7 @@ $routes->group('admin', function ($routes){
 
     // Manajemen Data Siswa
     $routes->get('siswa', 'SiswaController::siswa_index', ['as' => 'siswa_admin_index']);
+    $routes->get('siswa/detail/(:any)', 'SiswaController::siswa_detail/$1', ['as' => 'siswa_admin_detail']);
     $routes->post('siswa/save', 'SiswaController::siswa_save', ['as' => 'siswa_admin_save']);
     $routes->post('siswa/update', 'SiswaController::siswa_update', ['as' => 'siswa_admin_update']);
     $routes->post('siswa/delete', 'SiswaController::siswa_delete', ['as' => 'siswa_admin_delete']);

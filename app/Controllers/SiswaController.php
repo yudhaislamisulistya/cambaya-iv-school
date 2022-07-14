@@ -135,4 +135,12 @@ class SiswaController extends BaseController
             return redirect()->back()->with('status', 'failed');
         }
     }
+    public function siswa_detail($id_user){
+        try {
+            $data = $this->userModel->getSiswaById($id_user)->first();
+            return view('admin/detail-siswa', compact('data'));
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
 }
