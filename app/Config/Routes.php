@@ -68,6 +68,11 @@ $routes->group('admin', function ($routes){
     $routes->post('siswa/save', 'SiswaController::siswa_save', ['as' => 'siswa_admin_save']);
     $routes->post('siswa/update', 'SiswaController::siswa_update', ['as' => 'siswa_admin_update']);
     $routes->post('siswa/delete', 'SiswaController::siswa_delete', ['as' => 'siswa_admin_delete']);
+    // Manajemen Data Kelas
+    $routes->get('kelas', 'KelasController::index', ['as' => 'kelas_admin_index']);
+    $routes->post('kelas/save', 'KelasController::save', ['as' => 'kelas_admin_save']);
+    $routes->post('kelas/update', 'KelasController::update', ['as' => 'kelas_admin_update']);
+    $routes->post('kelas/delete', 'KelasController::delete', ['as' => 'kelas_admin_delete']);
 });
 
 $routes->group('guru', function($routes){

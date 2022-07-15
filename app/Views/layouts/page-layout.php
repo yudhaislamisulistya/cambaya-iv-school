@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/main_1.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/main_3.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/mapbox-gl.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.1.0/dist/css/tom-select.css" rel="stylesheet">
 </head>
 
 <body class="  ">
@@ -136,6 +137,8 @@
 
     <!-- app JavaScript -->
     <script src="<?= base_url() ?>/assets/js/app.js"></script>
+    <!-- Tom Select -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.1.0/dist/js/tom-select.complete.min.js"></script>
 
     <?= $this->renderSection('javascript') ?>
 </body>
