@@ -59,7 +59,7 @@
                 Pelajaran</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+        <a href="<?= route_to('pelajaran_siswa_admin_index') ?>">
                 <i class="las la-book"></i><span>Pejalaran Siswa</span>
             </a>
         </li>
