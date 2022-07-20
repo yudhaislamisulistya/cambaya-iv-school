@@ -67,7 +67,7 @@
             <span id="sidebar-bottom" class="font-weight-bold">Manajemen Jadwal</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('jadwal_mata_pelajaran_admin_index') ?>">
                 <i class="las la-calendar"></i><span>Jadwal Mata Pelajaran</span>
             </a>
         </li>

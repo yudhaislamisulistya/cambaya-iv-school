@@ -77,8 +77,11 @@ $routes->group('admin', function ($routes){
     // Manajemen Pelajaran Siswa
     $routes->get('pelajaran-siswa', 'PelajaranSiswaController::index', ['as' => 'pelajaran_siswa_admin_index']);
     $routes->post('pelajaran-siswa/save', 'PelajaranSiswaController::save', ['as' => 'pelajaran_siswa_admin_save']);
-    $routes->post('pelajaran-siswa/update', 'PelajaranSiswaController::update', ['as' => 'pelajaran_siswa_admin_update']);
+    $routes->post('pelajaran-siswa/update', 'PelajaranSiswaControuteoller::update', ['as' => 'pelajaran_siswa_admin_update']);
     $routes->post('pelajaran-siswa/delete', 'PelajaranSiswaController::delete', ['as' => 'pelajaran_siswa_admin_delete']);
+    
+    // Manajemen Jadwal Mata Pelajaran
+    $routes->get('jadwal-mata-pelajaran', 'JadwalMataPelajaranController::index', ['as' => 'jadwal_mata_pelajaran_admin_index']);
 });
 
 $routes->group('guru', function($routes){
