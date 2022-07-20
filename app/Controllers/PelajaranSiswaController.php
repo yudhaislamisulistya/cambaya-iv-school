@@ -15,4 +15,15 @@ class PelajaranSiswaController extends BaseController
         $data = $this->mataPelajaranModel->get()->getResult();
         return view('admin/pelajaran-siswa', compact('data'));
     }
+    public function save(){
+        try {
+            $data = $this->request->getVar();
+            $this->mataPelajaranModel->insert($data);
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            var_dump($th);
+            die();
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
 }
