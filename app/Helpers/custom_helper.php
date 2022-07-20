@@ -28,4 +28,10 @@ function getKelas(){
     return $data;
 }
 
+function getKelasById($id_kelas){
+    $kelasModel = new KelasModel();
+    $data = $kelasModel->where('id_kelas', $id_kelas)->first();
+    return $data;
+}
+
 ?>

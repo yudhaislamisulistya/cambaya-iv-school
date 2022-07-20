@@ -41,7 +41,7 @@
                                         <th>Mata Pelajaran</th>
                                         <th>Hari</th>
                                         <th>Jam</th>
-                                        <th>Pelajaran Siswa</th>
+                                        <th>Kelas</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -50,13 +50,21 @@
                                         <tr>
                                             <td><?= ++$key ?></td>
                                             <td><?= getGuruById($value->id_guru)['nip'] ?></td>
+                                            <td><?= getUserById(getGuruById($value->id_guru)['id_user'])['nama_lengkap'] ?></td>
+                                            <td><?= $value->mata_pelajaran?></td>
+                                            <td><?= $value->hari?></td>
+                                            <td><?= $value->jam_masuk?> - <?= $value->jam_keluar ?></td>
+                                            <td><?= getKelasById($value->id_kelas)['kelas'] ?></td>
+
                                             <td>
                                                 <a href="#" class="btn btn-info btn-sm btn-edit"
                                                         data-id="<?= $value->id_mata_pelajaran?>"
                                                         data-id-guru="<?= $value->id_guru?>"
-                                                        data-hari="<?= $value->kelas?>"
-                                                        data-jam-mulai="<?= $value->wali_kelas?>"
-                                                        data-jam-akhir="<?= $value->wali_kelas?>"
+                                                        data-mata-pelajaran="<?= $value->mata_pelajaran ?>"
+                                                        data-hari="<?= $value->hari?>"
+                                                        data-jam-masuk="<?= $value->jam_masuk?>"
+                                                        data-jam-keluar="<?= $value->jam_keluar?>"
+                                                        data-id-kelas="<?= $value->id_kelas?>"
                                                         >
                                                         <i class="las la-pen"></i>Edit</a>
                                                 <a href=" #" class="btn btn-danger btn-sm btn-delete"
@@ -118,14 +126,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Jam Mulai</label>
-                                <input type="time" class="form-control" name="jam_mulai"
+                                <input type="time" class="form-control" name="jam_masuk"
                                     placeholder="Tempat Lahir" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Jam Akhir</label>
-                                <input type="time" class="form-control" name="jam_akhir" required>
+                                <input type="time" class="form-control" name="jam_keluar" required>
                             </div>
                         </div>
                     </div>
@@ -164,10 +172,10 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>NIP dan Nama Guru</label>
-                        <select name="wali_kelas" id="select-beast-1" placeholder="Pilih Guru Pelajaran Siswa..." autocomplete="off">
+                        <select name="wali_kelas" class="form-control id_guru" placeholder="Pilih Guru Pelajaran Siswa..." autocomplete="off">
                             <?php foreach (getGuru() as $key => $value) { ?>
                                 <option value="">Pilih Guru Pelajaran Siswa....</option>
-                                <option value="<?= $value->id_guru ?>-<?= getUserById($value->id_user)['nama_lengkap'] ?>"><?= getUserById($value->id_user)['nama_lengkap'] ?> (<?= $value->nip ?>)</option>
+                                <option value="<?= $value->id_guru ?>"><?= getUserById($value->id_user)['nama_lengkap'] ?> (<?= $value->nip ?>)</option>
                             <?php } ?>
                         </select>
                     </div>
@@ -178,7 +186,7 @@
                     </div>
                     <div class="form-group">
                         <label>Hari</label>
-                        <select name="hari" class="hari" id="select-beast-2" placeholder="Pilih Hari..." autocomplete="off">
+                        <select name="hari" class="hari form-control" placeholder="Pilih Hari..." autocomplete="off">
                             <option value="">Pilih Hari....</option>
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
@@ -193,20 +201,20 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Jam Mulai</label>
-                                <input type="time" class="form-control jam_mulai" name="jam_mulai"
+                                <input  type="time" class="form-control jam_masuk" name="jam_masuk"
                                     placeholder="Tempat Lahir">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Jam Akhir</label>
-                                <input type="time" class="form-control jam_akhir" name="jam_akhir">
+                                <input  type="time" class="form-control jam_keluar" name="jam_keluar">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Kelas</label>
-                        <select name="id_kelas" class="kelas" id="select-beast-3" placeholder="Pilih Kelas..." autocomplete="off">
+                        <select name="id_kelas" class="form-control id_kelas"  placeholder="Pilih Kelas..." autocomplete="off">
                             <?php foreach (getKelas() as $key => $value) { ?>
                                 <option value="">Pilih Kelas...</option>
                                 <option value="<?= $value->id_kelas ?>"><?= $value->kelas ?> (<?= $value->wali_kelas ?>)</option>
@@ -215,7 +223,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="id_kelas" class="id_kelas">
+                    <input type="hidden" name="id_mata_pelajaran" class="id_mata_pelajaran">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
@@ -244,7 +252,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="id_kelas" class="id_kelas">
+                    <input type="hidden" name="id_mata_pelajaran" class="id_mata_pelajaran">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                     <button type="submit" class="btn btn-primary">Yes</button>
                 </div>
@@ -260,20 +268,27 @@
     $(document).ready(function () {
         $('.btn-edit').on('click',function(){
             const id = $(this).data('id');
-            const kelas = $(this).data('kelas');
+            const id_kelas = $(this).data('id-kelas');
             const id_guru = $(this).data('id-guru');
-            const wali_kelas = $(this).data('wali-kelas');
-            $('.id_kelas').val(id);
-            $('.kelas').val(kelas);
-            $('.wali_kelas').val(id_guru + '-' + wali_kelas);
-            console.log(id_guru + '-' + wali_kelas);
+            const mata_pelajaran = $(this).data('mata-pelajaran');
+            const hari = $(this).data('hari');
+            const jam_masuk = $(this).data('jam-masuk');
+            const jam_keluar = $(this).data('jam-keluar');
+            $('.id_mata_pelajaran').val(id);
+            $('.id_guru').val(id_guru);
+            $('.id_kelas').val(id_kelas);
+            $('.mata_pelajaran').val(mata_pelajaran);
+            $('.hari').val(hari);
+            $('.jam_masuk').val(jam_masuk);
+            console.log(jam_masuk);
+            $('.jam_keluar').val(jam_keluar);
             $('#editModal').modal('show');
         });
 
         $('.btn-delete').click(function (e) {
             e.preventDefault();
             const id = $(this).data('id');
-            $('.id_kelas').val(id);
+            $('.id_mata_pelajaran').val(id);
             $('#deleteModal').modal('show');
         });
     });
@@ -297,6 +312,20 @@
         }
     });
     new TomSelect("#select-beast-3",{
+        create: true,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+    new TomSelect("#select-beast-4",{
+        create: true,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+    new TomSelect("#select-beast-5",{
         create: true,
         sortField: {
             field: "text",
