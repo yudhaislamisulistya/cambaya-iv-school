@@ -22,17 +22,17 @@
             <span id="sidebar-bottom" class="font-weight-bold">Manajemen Jadwal</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('jadwal_mata_pelajaran_guru_index') ?>">
                 <i class="las la-calendar"></i><span>Jadwal Mata Pelajaran</span>
             </a>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('jadwal_mengajar_guru_index') ?>">
                 <i class="las la-calendar-check"></i><span>Jadwal Mengajar</span>
             </a>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('jadwal_ujian_guru_index') ?>">
                 <i class="las la-calendar-day"></i><span>Jadwal Ujian</span>
             </a>
         </li>

@@ -98,6 +98,15 @@ $routes->group('guru', function($routes){
 
     // Manajemen Data Diri Guru
     $routes->get('data-guru', 'GuruController::data_guru', ['as' => 'data_guru_guru_index']);
+    // Manajemen Jadwal Mata Pelajaran
+    $routes->get('jadwal-mata-pelajaran', 'JadwalMataPelajaranController::index_guru', ['as' => 'jadwal_mata_pelajaran_guru_index']);
+
+    // Manajemen Jadwal Mengajar
+    $routes->get('jadwal-mengajar', 'JadwalMengajarController::index_guru', ['as' => 'jadwal_mengajar_guru_index']);
+
+    // Manajemen Jadwal Ujian
+    $routes->get('jadwal-ujian', 'JadwalUjianController::index_guru', ['as' => 'jadwal_ujian_guru_index']);
+
 });
 
 $routes->group('siswa', function($routes){

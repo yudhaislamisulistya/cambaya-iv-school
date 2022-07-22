@@ -3,12 +3,14 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\GuruModel;
 use App\Models\UjianModel;
 
 class JadwalUjianController extends BaseController
 {
     public function __construct(){
         $this->ujianModel = new UjianModel();
+        $this->guruModel = new GuruModel();
     }
     public function index(){
         $data = $this->ujianModel->get()->getResult();
@@ -40,5 +42,10 @@ class JadwalUjianController extends BaseController
         } catch (\Exception $th) {
             return redirect()->back()->with('status', 'failed');
         }
+    }
+
+    public function index_guru(){
+        $data = $this->ujianModel->get()->getResult();
+        return view('guru/jadwal-ujian', compact('data'));
     }
 }
