@@ -2,7 +2,7 @@
 <nav class="iq-sidebar-menu">
     <ul id="iq-sidebar-toggle" class="iq-menu">
         <li class="active">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('dashboard_admin_index') ?>">
                 <i class="lab la-blogger-b"></i><span>Dashboard</span>
             </a>
         </li>
@@ -72,7 +72,7 @@
             </a>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('jadwal_mengajar_admin_index') ?>">
                 <i class="las la-calendar-check"></i><span>Jadwal Mengajar</span>
             </a>
         </li>

@@ -82,6 +82,9 @@ $routes->group('admin', function ($routes){
     
     // Manajemen Jadwal Mata Pelajaran
     $routes->get('jadwal-mata-pelajaran', 'JadwalMataPelajaranController::index', ['as' => 'jadwal_mata_pelajaran_admin_index']);
+
+    // Manajemen Jadwal Mengajar
+    $routes->get('jadwal-mengajar', 'JadwalMengajarController::index', ['as' => 'jadwal_mengajar_admin_index']);
 });
 
 $routes->group('guru', function($routes){
