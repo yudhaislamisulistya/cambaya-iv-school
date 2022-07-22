@@ -77,7 +77,7 @@ $routes->group('admin', function ($routes){
     // Manajemen Pelajaran Siswa
     $routes->get('pelajaran-siswa', 'PelajaranSiswaController::index', ['as' => 'pelajaran_siswa_admin_index']);
     $routes->post('pelajaran-siswa/save', 'PelajaranSiswaController::save', ['as' => 'pelajaran_siswa_admin_save']);
-    $routes->post('pelajaran-siswa/update', 'PelajaranSiswaControuteoller::update', ['as' => 'pelajaran_siswa_admin_update']);
+    $routes->post('pelajaran-siswa/update', 'PelajaranSiswaController::update', ['as' => 'pelajaran_siswa_admin_update']);
     $routes->post('pelajaran-siswa/delete', 'PelajaranSiswaController::delete', ['as' => 'pelajaran_siswa_admin_delete']);
     
     // Manajemen Jadwal Mata Pelajaran
@@ -85,6 +85,12 @@ $routes->group('admin', function ($routes){
 
     // Manajemen Jadwal Mengajar
     $routes->get('jadwal-mengajar', 'JadwalMengajarController::index', ['as' => 'jadwal_mengajar_admin_index']);
+
+    // Manajemen Jadwal Ujian
+    $routes->get('jadwal-ujian', 'JadwalUjianController::index', ['as' => 'jadwal_ujian_admin_index']);
+    $routes->post('jadwal-ujian/save', 'JadwalUjianController::save', ['as' => 'jadwal_ujian_admin_save']);
+    $routes->post('jadwal-ujian/update', 'JadwalUjianController::update', ['as' => 'jadwal_ujian_admin_update']);
+    $routes->post('jadwal-ujian/delete', 'JadwalUjianController::delete', ['as' => 'jadwal_ujian_admin_delete']);
 });
 
 $routes->group('guru', function($routes){

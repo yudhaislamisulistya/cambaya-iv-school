@@ -77,7 +77,7 @@
             </a>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('jadwal_ujian_admin_index') ?>">
                 <i class="las la-calendar-day"></i><span>Jadwal Ujian</span>
             </a>
         </li>
