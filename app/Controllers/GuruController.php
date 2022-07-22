@@ -131,4 +131,13 @@ class GuruController extends BaseController
             return redirect()->back()->with('status', 'failed');
         }
     }
+
+    // Role Guru
+    public function data_guru(){
+        $data = $this->guruModel->where('id_user', session()->get('id_user'))->first();
+        $tempat_tanggal_lahir = explode(', ', $data['tempat_tanggal_lahir']);
+        $tempat_lahir = $tempat_tanggal_lahir[0];
+        $tanggal_lahir = $tempat_tanggal_lahir[1];
+        return view('guru/data-guru', compact('data', 'tempat_lahir', 'tanggal_lahir'));
+    }
 }

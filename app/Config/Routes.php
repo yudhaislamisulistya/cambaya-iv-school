@@ -95,6 +95,9 @@ $routes->group('admin', function ($routes){
 
 $routes->group('guru', function($routes){
     $routes->get('dashboard', 'BerandaController::guru_dashboard', ['as' => 'dashboard_guru_index']);
+
+    // Manajemen Data Diri Guru
+    $routes->get('data-guru', 'GuruController::data_guru', ['as' => 'data_guru_guru_index']);
 });
 
 $routes->group('siswa', function($routes){
