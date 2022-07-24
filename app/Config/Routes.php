@@ -91,6 +91,12 @@ $routes->group('admin', function ($routes){
     $routes->post('jadwal-ujian/save', 'JadwalUjianController::save', ['as' => 'jadwal_ujian_admin_save']);
     $routes->post('jadwal-ujian/update', 'JadwalUjianController::update', ['as' => 'jadwal_ujian_admin_update']);
     $routes->post('jadwal-ujian/delete', 'JadwalUjianController::delete', ['as' => 'jadwal_ujian_admin_delete']);
+
+    // Manajemen Set Semester
+    $routes->get('semester', 'SemesterController::index', ['as' => 'semester_admin_index']);
+    $routes->post('semester/save', 'SemesterController::save', ['as' => 'semester_admin_save']);
+    $routes->post('semester/update', 'SemesterController::update', ['as' => 'semester_admin_update']);
+    $routes->post('semester/delete', 'SemesterController::delete', ['as' => 'semester_admin_delete']);
 });
 
 $routes->group('guru', function($routes){

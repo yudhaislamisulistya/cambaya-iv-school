@@ -81,5 +81,13 @@
                 <i class="las la-calendar-day"></i><span>Jadwal Ujian</span>
             </a>
         </li>
+        <li class="mt-2 mb-2">
+            <span id="sidebar-bottom" class="font-weight-bold">Master Data</span>
+        </li>
+        <li class=" ">
+            <a href="<?= route_to('semester_admin_index') ?>">
+                <i class="las la-tint"></i><span>Set Semester</span>
+            </a>
+        </li>
     </ul>
 </nav>
