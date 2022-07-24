@@ -23,4 +23,7 @@ class JadwalMataPelajaranController extends BaseController
         $data = $this->kelasModel->where('id_guru', $id_guru)->get()->getResult();
         return view('guru/jadwal-mata-pelajaran', compact('data'));
     }
+    public function detail($id_kelas, $id_semester){
+        return view('admin/detail-jadwal-mata-pelajaran', compact('id_kelas', 'id_semester'));
+    }
 }

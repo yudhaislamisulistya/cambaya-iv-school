@@ -25,6 +25,14 @@
                         <i class="zmdi zmdi-info-outline"></i>Proses Gagal
                     </div>
                 <?php }?>
+                <div class="alert text-white bg-primary" role="alert">
+                    <div class="iq-alert-text">
+                        <h3 class="text-white"><b>Tahun Ajaran <?= getSemesterAktif()['tahun_ajaran'] ?> <br> <?= getSemesterAktif()['semester'] ?>  </b></h3>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Data Pelajaran Siswa</h4>

@@ -4,11 +4,13 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KelasModel;
+use App\Models\TrSiswaKelasModel;
 
 class KelasController extends BaseController
 {
     public function __construct(){
         $this->kelasModel = new KelasModel();
+        $this->TrsiswakelasModel = new TrSiswaKelasModel();
     }
     public function index(){
         $data = $this->kelasModel->get()->getResult();
@@ -87,6 +89,30 @@ class KelasController extends BaseController
             $this->kelasModel->delete($data['id_kelas']);
             return redirect()->back()->with('status', 'success');
         } catch (\Exception $th) {
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
+    public function kelas_siswa_index($id_kelas, $id_semester){
+        $data = $this->TrsiswakelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+        return view('admin/tambah-siswa', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function kelas_siswa_save(){
+        try {
+            $data = $this->request->getVar();
+            $this->TrsiswakelasModel->insert($data);
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
+    public function kelas_siswa_delete(){
+        try {
+            $data = $this->request->getVar();
+            $this->TrsiswakelasModel->delete($data['id_siswa_kelas']);
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            var_dump($th);
+            die();
             return redirect()->back()->with('status', 'failed');
         }
     }

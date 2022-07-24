@@ -73,6 +73,9 @@ $routes->group('admin', function ($routes){
     $routes->post('kelas/save', 'KelasController::save', ['as' => 'kelas_admin_save']);
     $routes->post('kelas/update', 'KelasController::update', ['as' => 'kelas_admin_update']);
     $routes->post('kelas/delete', 'KelasController::delete', ['as' => 'kelas_admin_delete']);
+    $routes->get('kelas/siswa/(:any)/(:any)', 'KelasController::kelas_siswa_index/$1/$2', ['as' => 'kelas_siswa_admin_index']);
+    $routes->post('kelas/siswa/save', 'KelasController::kelas_siswa_save', ['as' => 'kelas_siswa_admin_save']);
+    $routes->post('kelas/siswa/delete', 'KelasController::kelas_siswa_delete', ['as' => 'kelas_siswa_admin_delete']);
     
     // Manajemen Pelajaran Siswa
     $routes->get('pelajaran-siswa', 'PelajaranSiswaController::index', ['as' => 'pelajaran_siswa_admin_index']);
@@ -82,6 +85,8 @@ $routes->group('admin', function ($routes){
     
     // Manajemen Jadwal Mata Pelajaran
     $routes->get('jadwal-mata-pelajaran', 'JadwalMataPelajaranController::index', ['as' => 'jadwal_mata_pelajaran_admin_index']);
+    $routes->get('jadwal-mata-pelajaran/detail/(:any)/(:any)', 'JadwalMataPelajaranController::detail/$1/$2', ['as' => 'jadwal_mata_pelajaran_admin_detail']);
+
 
     // Manajemen Jadwal Mengajar
     $routes->get('jadwal-mengajar', 'JadwalMengajarController::index', ['as' => 'jadwal_mengajar_admin_index']);
@@ -93,10 +98,14 @@ $routes->group('admin', function ($routes){
     $routes->post('jadwal-ujian/delete', 'JadwalUjianController::delete', ['as' => 'jadwal_ujian_admin_delete']);
 
     // Manajemen Set Semester
-    $routes->get('semester', 'SemesterController::index', ['as' => 'semester_admin_index']);
-    $routes->post('semester/save', 'SemesterController::save', ['as' => 'semester_admin_save']);
-    $routes->post('semester/update', 'SemesterController::update', ['as' => 'semester_admin_update']);
-    $routes->post('semester/delete', 'SemesterController::delete', ['as' => 'semester_admin_delete']);
+    $routes->get('absensi', 'AbsensiController::index', ['as' => 'absensi_admin_index']);
+    $routes->get('absensi/detail/(:any)/(:any)', 'AbsensiController::detail/$1/$2', ['as' => 'absensi_admin_detail']);
+    $routes->post('absensi/save', 'AbsensiController::ave', ['as' => 'absensi_admin_save']);
+    $routes->post('absensi/update', 'AbsensiController::update', ['as' => 'absensi_admin_update']);
+    $routes->post('absensi/delete', 'AbsensiController::delete', ['as' => 'absensi_admin_delete']);
+
+    // Manajemen Absensi
+
 });
 
 $routes->group('guru', function($routes){

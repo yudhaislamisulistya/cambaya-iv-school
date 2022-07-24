@@ -32,7 +32,7 @@
             <span id="sidebar-bottom" class="font-weight-bold">Manajemen Guru</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('absensi_admin_index') ?>">
                 <i class="las la-tasks"></i><span>Absensi</span>
             </a>
         </li>
