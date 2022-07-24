@@ -3,6 +3,7 @@
 use App\Models\GuruModel;
 use App\Models\KelasModel;
 use App\Models\MataPelajaranModel;
+use App\Models\SiswaModel;
 use App\Models\UserModel;
 
 function getGuru(){
@@ -38,6 +39,12 @@ function getKelasById($id_kelas){
 function getMataPelajranById($id_mata_pelajaran){
     $mataPelajaranModel = new MataPelajaranModel();
     $data = $mataPelajaranModel->where('id_mata_pelajaran', $id_mata_pelajaran)->first();
+    return $data;
+}
+
+function getSiswaById($id_user){
+    $siswaModel = new SiswaModel();
+    $data = $siswaModel->where('id_user', $id_user)->first();
     return $data;
 }
 

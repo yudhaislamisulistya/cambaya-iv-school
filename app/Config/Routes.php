@@ -111,6 +111,8 @@ $routes->group('guru', function($routes){
 
 $routes->group('siswa', function($routes){
     $routes->get('dashboard', 'BerandaController::siswa_dashboard', ['as' => 'dashboard_siswa_index']);
+
+    $routes->get('data-siswa', 'SiswaController::data_siswa' , ['as' => 'data_siswa_siswa_index']);
 });
 
 /*

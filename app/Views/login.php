@@ -46,7 +46,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="floating-label form-group">
-                                                <input class="floating-input form-control" name="email" type="email" placeholder=" ">
+                                                <input class="floating-input form-control" name="email" type="text" placeholder=" ">
                                                 <label>Email</label>
                                             </div>
                                         </div>

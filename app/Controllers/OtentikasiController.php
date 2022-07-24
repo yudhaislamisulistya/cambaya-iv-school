@@ -17,7 +17,7 @@ class OtentikasiController extends BaseController
     // Proses Login
     public function login_post(){
         $rules = [
-            'email' => 'required|min_length[6]|max_length[50]|valid_email',
+            'email' => 'required|min_length[6]|max_length[50]',
             'password' => 'required|min_length[8]|max_length[255]|validateUser[email,password]',
         ];
 

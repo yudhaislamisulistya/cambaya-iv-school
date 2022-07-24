@@ -22,6 +22,7 @@ class SiswaController extends BaseController
             $data['plain_password'] = $data['password'];
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             $data['role'] = 1;
+            $data['email'] = $data['nis'];
             $rules = [
                 'nama_lengkap' => [
                     'rules' => 'required',
@@ -142,5 +143,13 @@ class SiswaController extends BaseController
         } catch (\Throwable $th) {
             return redirect()->back()->with('status', 'failed');
         }
+    }
+    // Role Siswa
+    public function data_siswa(){
+        $data = $this->siswaModel->where('id_user', session()->get('id_user'))->first();
+        $tempat_tanggal_lahir = explode(', ', $data['tempat_tanggal_lahir']);
+        $tempat_lahir = $tempat_tanggal_lahir[0];
+        $tanggal_lahir = $tempat_tanggal_lahir[1];
+        return view('siswa/data-siswa', compact('data', 'tempat_lahir', 'tanggal_lahir'));
     }
 }

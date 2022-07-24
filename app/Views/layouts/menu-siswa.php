@@ -6,15 +6,15 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Siswa</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Siswa</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('data_siswa_siswa_index') ?>">
                 <i class="las la-tasks"></i><span>Data Siswa</span>
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Jadwal</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Jadwal</span>
         </li>
         <li class=" ">
             <a href="../backend/index.html">
@@ -27,7 +27,7 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Nilai</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Nilai</span>
         </li>
         <li class=" ">
             <a href="../backend/index.html">
@@ -40,7 +40,7 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Raport</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Raport</span>
         </li>
         <li class=" ">
             <a href="../backend/index.html">
@@ -48,7 +48,7 @@
             </a>
         </li>
         <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="position-relative sidebar-bottom font-weight-bold">Manajemen Diagram</span>
+            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Diagram</span>
         </li>
         <li class=" ">
             <a href="../backend/index.html">
