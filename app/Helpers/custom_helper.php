@@ -6,6 +6,8 @@ use App\Models\MataPelajaranModel;
 use App\Models\SemesterModel;
 use App\Models\SiswaModel;
 use App\Models\UserModel;
+use App\Models\TrAbsensiKelasModel;
+use App\Models\TrAbsensiSiswaKelasModel;
 
 function getGuru(){
     $guruModel = new GuruModel();
@@ -70,6 +72,18 @@ function getMataPelajaranByKelas($id_kelas, $id_semester, $hari){
 function getSiswa(){
     $siswaModel = new SiswaModel();
     $data = $siswaModel->get()->getResult();
+    return $data;
+}
+
+function getTrAbsensiKelas($id_kelas, $id_semester){
+    $trAbsensiKelasModel = new TrAbsensiKelasModel();
+    $data = $trAbsensiKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+    return $data;
+}
+
+function getTrAbsensiSiswaKelasByIdSiswaDanKodeAbsensi($id_siswa, $kode_absensi){
+    $trAbsensiSiswaKelasModel = new TrAbsensiSiswaKelasModel();
+    $data = $trAbsensiSiswaKelasModel->where(['id_siswa' => $id_siswa, 'kode_absensi' => $kode_absensi])->first();
     return $data;
 }
 

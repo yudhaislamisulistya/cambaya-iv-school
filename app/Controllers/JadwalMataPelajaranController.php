@@ -26,4 +26,7 @@ class JadwalMataPelajaranController extends BaseController
     public function detail($id_kelas, $id_semester){
         return view('admin/detail-jadwal-mata-pelajaran', compact('id_kelas', 'id_semester'));
     }
+    public function detail_siswa($id_kelas, $id_semester){
+        return view('guru/detail-jadwal-mata-pelajaran', compact('id_kelas', 'id_semester'));
+    }
 }

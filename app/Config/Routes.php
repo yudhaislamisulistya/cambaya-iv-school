@@ -98,13 +98,17 @@ $routes->group('admin', function ($routes){
     $routes->post('jadwal-ujian/delete', 'JadwalUjianController::delete', ['as' => 'jadwal_ujian_admin_delete']);
 
     // Manajemen Set Semester
-    $routes->get('absensi', 'AbsensiController::index', ['as' => 'absensi_admin_index']);
-    $routes->get('absensi/detail/(:any)/(:any)', 'AbsensiController::detail/$1/$2', ['as' => 'absensi_admin_detail']);
-    $routes->post('absensi/save', 'AbsensiController::ave', ['as' => 'absensi_admin_save']);
-    $routes->post('absensi/update', 'AbsensiController::update', ['as' => 'absensi_admin_update']);
-    $routes->post('absensi/delete', 'AbsensiController::delete', ['as' => 'absensi_admin_delete']);
+    $routes->get('semester', 'SemesterController::index', ['as' => 'semester_admin_index']);
+    $routes->post('semester/save', 'SemesterController::save', ['as' => 'semester_admin_save']);
+    $routes->post('semester/update', 'SemesterController::update', ['as' => 'semester_admin_update']);
+    $routes->post('semester/delete', 'SemesterController::delete', ['as' => 'semester_admin_delete']);
 
     // Manajemen Absensi
+    $routes->get('absensi', 'AbsensiController::index', ['as' => 'absensi_admin_index']);
+    $routes->get('absensi/detail/(:any)/(:any)', 'AbsensiController::detail/$1/$2', ['as' => 'absensi_admin_detail']);
+    $routes->post('absensi/save', 'AbsensiController::save', ['as' => 'absensi_admin_save']);
+    $routes->post('absensi/update', 'AbsensiController::update', ['as' => 'absensi_admin_update']);
+    $routes->post('absensi/delete', 'AbsensiController::delete', ['as' => 'absensi_admin_delete']);
 
 });
 
@@ -115,12 +119,22 @@ $routes->group('guru', function($routes){
     $routes->get('data-guru', 'GuruController::data_guru', ['as' => 'data_guru_guru_index']);
     // Manajemen Jadwal Mata Pelajaran
     $routes->get('jadwal-mata-pelajaran', 'JadwalMataPelajaranController::index_guru', ['as' => 'jadwal_mata_pelajaran_guru_index']);
+    $routes->get('jadwal-mata-pelajaran/detail/(:any)/(:any)', 'JadwalMataPelajaranController::detail_siswa/$1/$2', ['as' => 'jadwal_mata_pelajaran_guru_detail']);
 
     // Manajemen Jadwal Mengajar
     $routes->get('jadwal-mengajar', 'JadwalMengajarController::index_guru', ['as' => 'jadwal_mengajar_guru_index']);
 
     // Manajemen Jadwal Ujian
     $routes->get('jadwal-ujian', 'JadwalUjianController::index_guru', ['as' => 'jadwal_ujian_guru_index']);
+
+    // Manajemen Absensi
+    $routes->get('absensi', 'AbsensiController::guru_index', ['as' => 'absensi_guru_index']);
+    $routes->get('absensi/detail/(:any)/(:any)', 'AbsensiController::guru_detail/$1/$2', ['as' => 'absensi_guru_detail']);
+    $routes->post('absensi/add', 'AbsensiController::guru_add', ['as' => 'absensi_guru_add']);
+    $routes->post('absensi/save', 'AbsensiController::guru_save', ['as' => 'absensi_guru_save']);
+    $routes->post('absensi/update', 'AbsensiController::guru_update', ['as' => 'absensi_guru_update']);
+    $routes->post('absensi/delete', 'AbsensiController::guru_delete', ['as' => 'absensi_guru_delete']);
+
 
 });
 
