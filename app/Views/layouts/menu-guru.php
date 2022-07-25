@@ -40,7 +40,7 @@
             <span id="sidebar-bottom" class="font-weight-bold">Manajemen Nilai</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('nilai_pengetahuan_guru_index') ?>">
                 <i class="las la-tasks"></i><span>Nilai Pengetahuan</span>
             </a>
         </li>

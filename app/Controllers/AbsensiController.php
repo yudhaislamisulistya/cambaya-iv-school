@@ -37,11 +37,13 @@ class AbsensiController extends BaseController
 
     public function guru_update(){
         try {
+            $kode_absensi_siswa_kelas = random_string('alnum', 20);
             $data = $this->request->getVar();
             for ($i=0; $i < count($data['absensi_kelas_siswa']); $i++) { 
                 for ($j=0; $j < (int)$data['jumlah_absensi']; $j++) {
                     $this->TrabsensiSiswaKelasModel->where(['id_siswa' => $data['id_siswa'][$i], 'kode_absensi' => $data['kode_absensi'][$i][$j]])->delete();
                     $this->TrabsensiSiswaKelasModel->replace([
+                        'kode_absensi_siswa_kelas' => $kode_absensi_siswa_kelas,
                         'id_siswa' => $data['id_siswa'][$i],
                         'kode_absensi' => $data['kode_absensi'][$i][$j],
                         "status" => $data['absensi_kelas_siswa'][$i][$j],

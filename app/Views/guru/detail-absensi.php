@@ -75,7 +75,7 @@
                                                 <input type="hidden" name="kode_absensi[<?= ($key-1) ?>][<?= $key2 ?>]" value="<?= $value2->kode_absensi ?>">
                                                 <td>
                                                     <select name="absensi_kelas_siswa[<?= ($key-1) ?>][<?= $key2 ?>]" class="form-control">
-                                                        <?php if(!getTrAbsensiSiswaKelasByIdSiswaDanKodeAbsensi($value->id_siswa, $value2->kode_absensi)['status']){ ?>
+                                                        <?php if(getTrAbsensiSiswaKelasByIdSiswaDanKodeAbsensi($value->id_siswa, $value2->kode_absensi) == null){ ?>
                                                         <option value="">Status...</option>
                                                         <option value="" disabled>--------</option>
                                                         <?php }else{ ?>
@@ -89,10 +89,10 @@
                                                     </select>
                                                 </td>
                                                 <?php } ?>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
+                                                <td><?= count(getTrAbsensiSiswaKelasByStatus('Hadir', $value->id_siswa, getTrAbsensiSiswaKelasIdSiswa($value->id_siswa)['kode_absensi_siswa_kelas'])) ?></td>
+                                                <td><?= count(getTrAbsensiSiswaKelasByStatus('Izin', $value->id_siswa, getTrAbsensiSiswaKelasIdSiswa($value->id_siswa)['kode_absensi_siswa_kelas'])) ?></td>
+                                                <td><?= count(getTrAbsensiSiswaKelasByStatus('Alpha', $value->id_siswa, getTrAbsensiSiswaKelasIdSiswa($value->id_siswa)['kode_absensi_siswa_kelas'])) ?></td>
+                                                <td><?= count(getTrAbsensiSiswaKelasByStatus('Sakit', $value->id_siswa, getTrAbsensiSiswaKelasIdSiswa($value->id_siswa)['kode_absensi_siswa_kelas'])) ?></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

@@ -135,6 +135,14 @@ $routes->group('guru', function($routes){
     $routes->post('absensi/update', 'AbsensiController::guru_update', ['as' => 'absensi_guru_update']);
     $routes->post('absensi/delete', 'AbsensiController::guru_delete', ['as' => 'absensi_guru_delete']);
 
+    // Manajemen Nilai Pengetahuan
+    $routes->get('nilai-pengetahuan', 'NilaiPengetahuanController::index', ['as' => 'nilai_pengetahuan_guru_index']);
+    $routes->get('nilai-pengetahuan/detail/(:any)/(:any)', 'NilaiPengetahuanController::detail/$1/$2', ['as' => 'nilai_pengetahuan_guru_detail']);
+    $routes->post('nilai-pengetahuan/add', 'NilaiPengetahuanController::add', ['as' => 'nilai_pengetahuan_guru_add']);
+    $routes->post('nilai-pengetahuan/save', 'NilaiPengetahuanController::save', ['as' => 'nilai_pengetahuan_guru_save']);
+    $routes->post('nilai-pengetahuan/update', 'NilaiPengetahuanController::update', ['as' => 'nilai_pengetahuan_guru_update']);
+    $routes->post('nilai-pengetahuan/delete', 'NilaiPengetahuanController::delete', ['as' => 'nilai_pengetahuan_guru_delete']);
+
 
 });
 
