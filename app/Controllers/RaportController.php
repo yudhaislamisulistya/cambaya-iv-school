@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\KelasModel;
 use App\Models\TrSiswaKelasModel;
 use App\Models\TrSiswaPengetahuanKeterampilanModel;
+use App\Models\TrSiswaPrestasiModel;
 
 class RaportController extends BaseController
 {
@@ -13,6 +14,7 @@ class RaportController extends BaseController
         $this->kelasModel = new KelasModel();
         $this->TrsiswaKelasModel = new TrSiswaKelasModel();
         $this->TrsiswaPengetahuanKeterampilanModel = new TrSiswaPengetahuanKeterampilanModel();
+        $this->TrsiswaPrestasiModel = new TrSiswaPrestasiModel();
     }
     public function index(){
         $id_guru = getGuruByIdUser(session()->get('id_user'))['id_guru'];
@@ -109,6 +111,36 @@ class RaportController extends BaseController
                     'k_nilai' => $data['k_nilai'][$i],
                     'k_predikat' => $data['k_predikat'][$i],
                     'k_deskripsi' => $data['k_deskripsi'][$i],
+                ]);
+            }
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            var_dump($th);
+            die();
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
+    public function prestasi($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('guru/raport-prestasi', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function prestasi_add(){
+        try {
+            $data = $this->request->getVar();
+            $this->TrsiswaPrestasiModel->insert($data);
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
+    public function prestasi_save(){
+        try {
+            $data = $this->request->getVar();
+            for ($i=0; $i < count($data['id_siswa_prestasi']); $i++) { 
+                $this->TrsiswaPrestasiModel->update($data['id_siswa_prestasi'][$i], [
+                    'keterangan' => $data['keterangan'][$i],
                 ]);
             }
             return redirect()->back()->with('status', 'success');

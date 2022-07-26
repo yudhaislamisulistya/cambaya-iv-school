@@ -13,6 +13,7 @@ use App\Models\TrNilaiKeterampilanSiswaKelasModel;
 use App\Models\TrNilaiPengetahuanKelasModel;
 use App\Models\TrNilaiPengetahuanSiswaKelasModel;
 use App\Models\TrSiswaPengetahuanKeterampilanModel;
+use App\Models\TrSiswaPrestasiModel;
 
 function getGuru(){
     $guruModel = new GuruModel();
@@ -225,6 +226,12 @@ function getTrNilaiKeterampilanSiswaKelasByIdSiswaKodeNilaiKeterampilan($id_sisw
 function getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($id_siswa_kelas, $id_mata_pelajaran){
     $trSiswaPengetahuanKeterampilanModel = new TrSiswaPengetahuanKeterampilanModel();
     $data = $trSiswaPengetahuanKeterampilanModel->where(['id_siswa_kelas' => $id_siswa_kelas, 'id_mata_pelajaran' => $id_mata_pelajaran])->first();
+    return $data;
+}
+
+function getTrSiswaPrestasi(){
+    $trSiswaPrestasiModel = new TrSiswaPrestasiModel();
+    $data = $trSiswaPrestasiModel->get()->getResult();
     return $data;
 }
 

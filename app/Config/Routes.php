@@ -163,6 +163,11 @@ $routes->group('guru', function($routes){
     $routes->get('raport/pengetahuan-keterampilan/(:any)', 'RaportController::pengetahuan_keterampilan/$1', ['as' => 'raport_guru_pengetahuan_keterampilan']);
     $routes->post('raport/pengetahuan-keterampilan/', 'RaportController::pengetahuan_keterampilan_save', ['as' => 'raport_guru_pengetahuan_keterampilan_save']);
 
+    // Manajemen Raport Khusus Prestasi
+    $routes->get('raport/prestasi/(:any)', 'RaportController::prestasi/$1', ['as' => 'raport_guru_prestasi']);
+    $routes->post('raport/prestasi/save', 'RaportController::prestasi_save', ['as' => 'raport_guru_prestasi_save']);
+    $routes->post('raport/prestasi/add', 'RaportController::prestasi_add', ['as' => 'raport_guru_prestasi_add']);
+
 });
 
 $routes->group('siswa', function($routes){
