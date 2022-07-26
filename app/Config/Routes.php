@@ -154,6 +154,8 @@ $routes->group('guru', function($routes){
     // Manajemen Raport
     $routes->get('raport', 'RaportController::index', ['as' => 'raport_guru_index']);
     $routes->get('raport/daftar-siswa/(:any)/(:any)', 'RaportController::daftar_siswa/$1/$2', ['as' => 'raport_guru_daftar_siswa']);
+    $routes->get('raport/kompetensi-keahlian/(:any)', 'RaportController::kompetensi_keahlian/$1', ['as' => 'raport_guru_kompetensi_keahlian']);
+    $routes->post('raport/kompetensi-keahlian/', 'RaportController::kompetensi_keahlian_save', ['as' => 'raport_guru_kompetensi_keahlian_save']);
 
 });
 
