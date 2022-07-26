@@ -45,7 +45,7 @@
             </a>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('nilai_keterampilan_guru_index') ?>">
                 <i class="las la-user-check"></i><span>Nilai Keterampilan</span>
             </a>
         </li>
@@ -53,7 +53,7 @@
             <span id="sidebar-bottom" class="font-weight-bold">Manajemen Raport</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('raport_guru_index') ?>">
                 <i class="las la-book-open"></i><span>Raport</span>
             </a>
         </li>

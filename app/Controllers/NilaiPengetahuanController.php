@@ -23,10 +23,9 @@ class NilaiPengetahuanController extends BaseController
         return view('guru/nilai-pengetahuan', compact('data'));
     }
 
-    public function detail($id_kelas, $id_semester){
+    public function detail($id_mata_pelajaran, $id_kelas, $id_semester){
         $data = $this->TrsiswaKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
-        // $kode_nilai_pengetahuan = $this->TrnilaiPengetahuanKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->first()['kode_nilai_pengetahuan'];
-        return view('guru/detail-nilai-pengetahuan', compact('data', 'id_kelas', 'id_semester'));
+        return view('guru/detail-nilai-pengetahuan', compact('data','id_mata_pelajaran', 'id_kelas', 'id_semester'));
     }
     
     public function add(){
@@ -44,14 +43,14 @@ class NilaiPengetahuanController extends BaseController
         try {
             $kode_nilai_pengetahuan_siswa_kelas = random_string('alnum', 20);
             $data = $this->request->getVar();
-            for ($i=0; $i < count($data['nilai']); $i++) { 
+            for ($i=0; $i < count($data['nilai_pengetahuan']); $i++) { 
                 for ($j=0; $j < (int)$data['jumlah_nilai_pengetahuan']; $j++) {
                     $this->TrnilaiPengetahuanSiswaKelasModel->where(['id_siswa' => $data['id_siswa'][$i], 'kode_nilai_pengetahuan' => $data['kode_nilai_pengetahuan'][$i][$j]])->delete();
                     $this->TrnilaiPengetahuanSiswaKelasModel->replace([
                         'kode_nilai_pengetahuan_siswa_kelas' => $kode_nilai_pengetahuan_siswa_kelas,
                         'id_siswa' => $data['id_siswa'][$i],
                         'kode_nilai_pengetahuan' => $data['kode_nilai_pengetahuan'][$i][$j],
-                        "nilai" => $data['nilai'][$i][$j],
+                        "nilai_pengetahuan" => $data['nilai_pengetahuan'][$i][$j],
                     ]);
                 }
             }

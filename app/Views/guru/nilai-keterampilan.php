@@ -35,7 +35,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Nilai Pengetahuan - List Mata Pelajaran</h4>
+                        <h4 class="card-title">Nilai Keterampilan - List Mata Pelajaran</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -59,7 +59,7 @@
                                         <td><?= $value->hari ?></td>
                                         <td><?= $value->jam_masuk ?>-<?= $value->jam_keluar ?></td>
                                         <td>
-                                            <a href="<?= route_to('nilai_pengetahuan_guru_detail', $value->id_mata_pelajaran, $value->id_kelas, getSemesterAktif()['id_semester']) ?>"
+                                            <a href="<?= route_to('nilai_keterampilan_guru_detail', $value->id_mata_pelajaran, $value->id_kelas, getSemesterAktif()['id_semester']) ?>"
                                                 class="btn btn-success btn-sm">
                                                 <i class="las la-check"></i>Detail Nilai Pengetahuan</a>
                                         </td>

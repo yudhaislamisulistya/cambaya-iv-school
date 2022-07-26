@@ -137,12 +137,23 @@ $routes->group('guru', function($routes){
 
     // Manajemen Nilai Pengetahuan
     $routes->get('nilai-pengetahuan', 'NilaiPengetahuanController::index', ['as' => 'nilai_pengetahuan_guru_index']);
-    $routes->get('nilai-pengetahuan/detail/(:any)/(:any)', 'NilaiPengetahuanController::detail/$1/$2', ['as' => 'nilai_pengetahuan_guru_detail']);
+    $routes->get('nilai-pengetahuan/detail/(:any)/(:any)/(:any)', 'NilaiPengetahuanController::detail/$1/$2/$3', ['as' => 'nilai_pengetahuan_guru_detail']);
     $routes->post('nilai-pengetahuan/add', 'NilaiPengetahuanController::add', ['as' => 'nilai_pengetahuan_guru_add']);
     $routes->post('nilai-pengetahuan/save', 'NilaiPengetahuanController::save', ['as' => 'nilai_pengetahuan_guru_save']);
     $routes->post('nilai-pengetahuan/update', 'NilaiPengetahuanController::update', ['as' => 'nilai_pengetahuan_guru_update']);
     $routes->post('nilai-pengetahuan/delete', 'NilaiPengetahuanController::delete', ['as' => 'nilai_pengetahuan_guru_delete']);
 
+    // Manajemen Nilai Keterampilan
+    $routes->get('nilai-keterampilan', 'NilaiKeterampilanController::index', ['as' => 'nilai_keterampilan_guru_index']);
+    $routes->get('nilai-keterampilan/detail/(:any)/(:any)/(:any)', 'NilaiKeterampilanController::detail/$1/$2/$3', ['as' => 'nilai_keterampilan_guru_detail']);
+    $routes->post('nilai-keterampilan/add', 'NilaiKeterampilanController::add', ['as' => 'nilai_keterampilan_guru_add']);
+    $routes->post('nilai-keterampilan/save', 'NilaiKeterampilanController::save', ['as' => 'nilai_keterampilan_guru_save']);
+    $routes->post('nilai-keterampilan/update', 'NilaiKeterampilanController::update', ['as' => 'nilai_keterampilan_guru_update']);
+    $routes->post('nilai-keterampilan/delete', 'NilaiKeterampilanController::delete', ['as' => 'nilai_keterampilan_guru_delete']);
+
+    // Manajemen Raport
+    $routes->get('raport', 'RaportController::index', ['as' => 'raport_guru_index']);
+    $routes->get('raport/daftar-siswa/(:any)/(:any)', 'RaportController::daftar_siswa/$1/$2', ['as' => 'raport_guru_daftar_siswa']);
 
 });
 

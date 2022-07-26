@@ -35,7 +35,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Nilai Pengetahuan - List Mata Pelajaran</h4>
+                        <h4 class="card-title">Daftar Kelas</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -43,10 +43,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Mata Pelajaran</th>
                                         <th>Kelas</th>
-                                        <th>Hari</th>
-                                        <th>Jam</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -54,14 +51,11 @@
                                     <?php foreach ($data as $key => $value) { ?>
                                     <tr>
                                         <td><?= ++$key ?></td>
-                                        <td><span class="badge badge-info"><?= $value->mata_pelajaran ?></span></td>
-                                        <td><?= getKelasById($value->id_kelas)['kelas'] ?></span></td>
-                                        <td><?= $value->hari ?></td>
-                                        <td><?= $value->jam_masuk ?>-<?= $value->jam_keluar ?></td>
+                                        <td><span class="badge badge-info"><?= $value->kelas ?></span></td>
                                         <td>
-                                            <a href="<?= route_to('nilai_pengetahuan_guru_detail', $value->id_mata_pelajaran, $value->id_kelas, getSemesterAktif()['id_semester']) ?>"
+                                            <a href="<?= route_to('raport_guru_daftar_siswa', $value->id_kelas, getSemesterAktif()['id_semester']) ?>"
                                                 class="btn btn-success btn-sm">
-                                                <i class="las la-check"></i>Detail Nilai Pengetahuan</a>
+                                                <i class="las la-home"></i>List Siswa</a>
                                         </td>
                                     </tr>
                                     <?php } ?>

@@ -8,6 +8,8 @@ use App\Models\SiswaModel;
 use App\Models\UserModel;
 use App\Models\TrAbsensiKelasModel;
 use App\Models\TrAbsensiSiswaKelasModel;
+use App\Models\TrNilaiKeterampilanKelasModel;
+use App\Models\TrNilaiKeterampilanSiswaKelasModel;
 use App\Models\TrNilaiPengetahuanKelasModel;
 use App\Models\TrNilaiPengetahuanSiswaKelasModel;
 
@@ -101,9 +103,11 @@ function getTrAbsensiSiswaKelasIdSiswa($id_siswa){
     return $data;
 }
 
-function getTrNilaiPengetahuanKelas($id_kelas, $id_semester){
+// Fungsi Untuk manajemen Nilai Pengetahuan
+
+function getTrNilaiPengetahuanKelas($id_mata_pelajaran, $id_kelas, $id_semester){
     $trNilaiPengetahuanKelasModel = new TrNilaiPengetahuanKelasModel();
-    $data = $trNilaiPengetahuanKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+    $data = $trNilaiPengetahuanKelasModel->where(['id_mata_pelajaran' => $id_mata_pelajaran, 'id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
     return $data;
 }
 
@@ -125,6 +129,32 @@ function getTrNilaiPengetahuanSiswaKelasByKodeNilaiPengetahuan($kode_nilai_penge
     return $data;
 }
 
+// Fungsi Untuk Manajemen Nilai Keterampilan
+
+function getTrNilaiKeterampilanKelas($id_mata_pelajaran, $id_kelas, $id_semester){
+    $trNilaiKeterampilanKelasModel = new TrNilaiKeterampilanKelasModel();
+    $data = $trNilaiKeterampilanKelasModel->where(['id_mata_pelajaran' => $id_mata_pelajaran, 'id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+    return $data;
+}
+
+function getTrNilaiKeterampilanSiswaKelasByStatus($kode_nilai_keterampilan_siswa_kelas, $id_siswa, $kode_nilai_keterampilan){
+    $trNilaiKeterampilanSiswaKelasModel = new TrNilaiKeterampilanSiswaKelasModel();
+    $data = $trNilaiKeterampilanSiswaKelasModel->where(['kode_nilai_keterampilan_siswa_kelas' => $kode_nilai_keterampilan_siswa_kelas, 'id_siswa' => $id_siswa, 'kode_nilai_keterampilan' => $kode_nilai_keterampilan])->first();
+    return $data;
+}
+
+function getTrNilaiKeterampilanSiswaKelasByNilai($kode_nilai_keterampilan_siswa_kelas, $id_siswa){
+    $trNilaiKeterampilanSiswaKelasModel = new TrNilaiKeterampilanSiswaKelasModel();
+    $data = $trNilaiKeterampilanSiswaKelasModel->where(['kode_nilai_keterampilan_siswa_kelas' => $kode_nilai_keterampilan_siswa_kelas, 'id_siswa' => $id_siswa])->get()->getResult();
+    return $data;
+}
+
+function getTrNilaiKeterampilanSiswaKelasByKodeNilaiKeterampilan($kode_nilai_keterampilan){
+    $trNilaiKeterampilanSiswaKelasModel = new TrNilaiKeterampilanSiswaKelasModel();
+    $data = $trNilaiKeterampilanSiswaKelasModel->where('kode_nilai_keterampilan', $kode_nilai_keterampilan)->first();
+    return $data;
+}
+
 function getPredikatByNilai($nilai){
     $status = '';
     if($nilai >= 86 && $nilai <= 100){
@@ -133,20 +163,32 @@ function getPredikatByNilai($nilai){
         $status = 'A-';
     }else if($nilai > 76 && $nilai <= 80){
         $status = 'B+';
-    }else if($nilai > 71 && $nilai <= 75){
+    }else if($nilai > 71 && $nilai <= 76){
         $status = 'B';
-    }else if($nilai > 66 && $nilai <= 70){
+    }else if($nilai > 66 && $nilai <= 71){
         $status = 'B-';
-    }else if($nilai > 61 && $nilai <= 65){
+    }else if($nilai > 61 && $nilai <= 66){
         $status = 'C+';
-    }else if($nilai > 51 && $nilai <= 60){
+    }else if($nilai > 51 && $nilai <= 61){
         $status = 'C';
-    }else if($nilai > 45 && $nilai <= 50){
+    }else if($nilai > 45 && $nilai <= 51){
         $status = 'D';
     }else if($nilai <= 44){
         $status = 'E';
     }
     return $status;
+}
+
+function getMataPelajaranById($id_mata_pelajaran){
+    $mataPelajaranModel = new MataPelajaranModel();
+    $data = $mataPelajaranModel->where('id_mata_pelajaran', $id_mata_pelajaran)->first();
+    return $data;
+}
+
+function getGuruByIdUser($id_user){
+    $guruModel = new GuruModel();
+    $data = $guruModel->where('id_user', $id_user)->first();
+    return $data;
 }
 
 
