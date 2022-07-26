@@ -167,6 +167,9 @@ $routes->group('guru', function($routes){
     $routes->get('raport/prestasi/(:any)', 'RaportController::prestasi/$1', ['as' => 'raport_guru_prestasi']);
     $routes->post('raport/prestasi/save', 'RaportController::prestasi_save', ['as' => 'raport_guru_prestasi_save']);
     $routes->post('raport/prestasi/add', 'RaportController::prestasi_add', ['as' => 'raport_guru_prestasi_add']);
+    // Manajemen Raport Khusus Ketidakhadiran
+    $routes->get('raport/ketidakhadiran/(:any)', 'RaportController::ketidakhadiran/$1', ['as' => 'raport_guru_ketidakhadiran']);
+    $routes->post('raport/ketidakhadiran/', 'RaportController::ketidakhadiran_save', ['as' => 'raport_guru_ketidakhadiran_save']);
 
 });
 

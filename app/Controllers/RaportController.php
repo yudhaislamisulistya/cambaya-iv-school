@@ -150,4 +150,24 @@ class RaportController extends BaseController
             return redirect()->back()->with('status', 'failed');
         }
     }
+    public function ketidakhadiran($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('guru/raport-ketidakhadiran', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function ketidakhadiran_save(){
+        try {
+            $data = $this->request->getVar();
+            $this->TrsiswaKelasModel->update($data['id_siswa_kelas'], [
+                'sikap_spiritual' => $data['sikap_spiritual'],
+                'sikap_sosial' => $data['sikap_sosial']
+            ]);
+            return redirect()->back()->with('status', 'success');
+        } catch (\Exception $th) {
+            var_dump($th);
+            die();
+            return redirect()->back()->with('status', 'failed');
+        }
+    }
 }

@@ -50,7 +50,7 @@
                                                 <a href="<?= route_to('raport_guru_ekstrakurikuler', $value->id_siswa_kelas) ?>" class="btn btn-success btn-sm mt-1">Ekstrakuriikuler</a>
                                                 <a href="<?= route_to('raport_guru_saran', $value->id_siswa_kelas) ?>" class="btn btn-warning btn-sm mt-1">Saran</a>
                                                 <a href="<?= route_to('raport_guru_prestasi',$value->id_siswa_kelas) ?>" class="btn btn-secondary btn-sm mt-1">Prestasi</a>
-                                                <a href="" class="btn btn-danger btn-sm mt-1">Ketidakhadiran</a>
+                                                <a href="<?= route_to('raport_guru_ketidakhadiran',$value->id_siswa_kelas) ?>" class="btn btn-danger btn-sm mt-1">Ketidakhadiran</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
