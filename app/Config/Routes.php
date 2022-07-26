@@ -156,6 +156,12 @@ $routes->group('guru', function($routes){
     $routes->get('raport/daftar-siswa/(:any)/(:any)', 'RaportController::daftar_siswa/$1/$2', ['as' => 'raport_guru_daftar_siswa']);
     $routes->get('raport/kompetensi-keahlian/(:any)', 'RaportController::kompetensi_keahlian/$1', ['as' => 'raport_guru_kompetensi_keahlian']);
     $routes->post('raport/kompetensi-keahlian/', 'RaportController::kompetensi_keahlian_save', ['as' => 'raport_guru_kompetensi_keahlian_save']);
+    $routes->get('raport/ektrakurikuler/(:any)', 'RaportController::ekstrakurikuler/$1', ['as' => 'raport_guru_ekstrakurikuler']);
+    $routes->post('raport/ektrakurikuler/', 'RaportController::ekstrakurikuler_save', ['as' => 'raport_guru_ekstrakurikuler_save']);
+    $routes->get('raport/saran/(:any)', 'RaportController::saran/$1', ['as' => 'raport_guru_saran']);
+    $routes->post('raport/saran/', 'RaportController::saran_save', ['as' => 'raport_guru_saran_save']);
+    $routes->get('raport/pengetahuan-keterampilan/(:any)', 'RaportController::pengetahuan_keterampilan/$1', ['as' => 'raport_guru_pengetahuan_keterampilan']);
+    $routes->post('raport/pengetahuan-keterampilan/', 'RaportController::pengetahuan_keterampilan_save', ['as' => 'raport_guru_pengetahuan_keterampilan_save']);
 
 });
 

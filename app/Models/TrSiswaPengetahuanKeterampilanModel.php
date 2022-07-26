@@ -4,41 +4,25 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class TrSiswaKelasModel extends Model
+class TrSiswaPengetahuanKeterampilanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tr_siswa_kelas';
-    protected $primaryKey       = 'id_siswa_kelas';
+    protected $table            = 'tr_siswa_pengetahuan_keterampilan';
+    protected $primaryKey       = 'id_siswa_pengetahuan_keterampilan';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_kelas',
-        'id_semester',
-        'id_siswa',
-        'sikap_spiritual',
-        'sikap_sosial',
+        'id_siswa_kelas',
+        'id_mata_pelajaran',
         'p_nilai',
         'p_predikat',
         'p_deskripsi',
         'k_nilai',
         'k_predikat',
         'k_deskripsi',
-        'pramuka',
-        'tari',
-        'sanggar_mewarnai_dan_menggambar',
-        'quran_club',
-        'sains_club',
-        'english_club',
-        'sepak_bola',
-        'tenis_meja',
-        'pmr_dan_dokcil',
-        'saran',
-        'hadir',
-        'alpha',
-        'sakit',
     ];
 
     // Dates

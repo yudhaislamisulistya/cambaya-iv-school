@@ -34,6 +34,7 @@
                             (<?= getSiswaByIdSiswa($data['id_siswa'])['nis'] ?>)</h4>
                     </div>
                     <div class="card-body">
+                        <h3 class="mb-3">Kompetensi Keahlian</h2>
                         <form action="<?= route_to('raport_guru_kompetensi_keahlian_save') ?>" method="post">
                             <div class="table-responsive">
                                 <table class="table table-hover">

@@ -12,6 +12,7 @@ use App\Models\TrNilaiKeterampilanKelasModel;
 use App\Models\TrNilaiKeterampilanSiswaKelasModel;
 use App\Models\TrNilaiPengetahuanKelasModel;
 use App\Models\TrNilaiPengetahuanSiswaKelasModel;
+use App\Models\TrSiswaPengetahuanKeterampilanModel;
 
 function getGuru(){
     $guruModel = new GuruModel();
@@ -159,7 +160,7 @@ function getPredikatByNilai($nilai){
     $status = '';
     if($nilai >= 86 && $nilai <= 100){
         $status = 'A';
-    }else if($nilai > 80 && $nilai <= 85){
+    }else if($nilai > 80 && $nilai <= 86){
         $status = 'A-';
     }else if($nilai > 76 && $nilai <= 80){
         $status = 'B+';
@@ -191,5 +192,40 @@ function getGuruByIdUser($id_user){
     return $data;
 }
 
+function getMataPelajaranByIdKelasDanIdSemester($id_kelas, $id_semester){
+    $mataPelajaranModel = new MataPelajaranModel();
+    $data = $mataPelajaranModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+    return $data;
+}
+
+function getTrNilaiPengetahuanKelasByIdMataPelajaranKelasSemester($id_mata_pelajaran, $id_kelas, $id_semester){
+    $trNilaiPengetahuanKelasModel = new TrNilaiPengetahuanKelasModel();
+    $data = $trNilaiPengetahuanKelasModel->where(['id_mata_pelajaran' => $id_mata_pelajaran, 'id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+    return $data;
+}
+
+function getTrNilaiPengetahuanSiswaKelasByIdSiswaKodeNilaiPengetahuan($id_siswa, $kode_nilai_pengetahuan){
+    $trNilaiPengetahuanSiswaKelasModel = new TrNilaiPengetahuanSiswaKelasModel();
+    $data = $trNilaiPengetahuanSiswaKelasModel->where(['id_siswa' => $id_siswa, 'kode_nilai_pengetahuan' => $kode_nilai_pengetahuan])->first();
+    return $data;
+}
+
+function getTrNilaiKeterampilanKelasByIdMataPelajaranKelasSemester($id_mata_pelajaran, $id_kelas, $id_semester){
+    $trNilaiKeterampilanKelasModel = new TrNilaiKeterampilanKelasModel();
+    $data = $trNilaiKeterampilanKelasModel->where(['id_mata_pelajaran' => $id_mata_pelajaran, 'id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+    return $data;
+}
+
+function getTrNilaiKeterampilanSiswaKelasByIdSiswaKodeNilaiKeterampilan($id_siswa, $kode_nilai_keterampilan){
+    $trNilaiKeterampilanSiswaKelasModel = new TrNilaiKeterampilanSiswaKelasModel();
+    $data = $trNilaiKeterampilanSiswaKelasModel->where(['id_siswa' => $id_siswa, 'kode_nilai_keterampilan' => $kode_nilai_keterampilan])->first();
+    return $data;
+}
+
+function getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($id_siswa_kelas, $id_mata_pelajaran){
+    $trSiswaPengetahuanKeterampilanModel = new TrSiswaPengetahuanKeterampilanModel();
+    $data = $trSiswaPengetahuanKeterampilanModel->where(['id_siswa_kelas' => $id_siswa_kelas, 'id_mata_pelajaran' => $id_mata_pelajaran])->first();
+    return $data;
+}
 
 ?>
