@@ -45,6 +45,12 @@ function getKelasById($id_kelas){
     return $data;
 }
 
+function getKelasByIdGuru($id_guru){
+    $kelasModel = new KelasModel();
+    $data = $kelasModel->where('id_guru', $id_guru)->get()->getResult();
+    return $data;
+}
+
 function getMataPelajranById($id_mata_pelajaran){
     $mataPelajaranModel = new MataPelajaranModel();
     $data = $mataPelajaranModel->where('id_mata_pelajaran', $id_mata_pelajaran)->first();

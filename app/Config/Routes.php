@@ -170,6 +170,13 @@ $routes->group('guru', function($routes){
     // Manajemen Raport Khusus Ketidakhadiran
     $routes->get('raport/ketidakhadiran/(:any)', 'RaportController::ketidakhadiran/$1', ['as' => 'raport_guru_ketidakhadiran']);
     $routes->post('raport/ketidakhadiran/', 'RaportController::ketidakhadiran_save', ['as' => 'raport_guru_ketidakhadiran_save']);
+    // Manajemen Raport Khusus Diagram Pengetahuan dan Keterampilan
+    $routes->get('raport/diagram-pengetahuan-keterampilan/(:any)', 'RaportController::diagram_pengetahuan_keterampilan/$1', ['as' => 'raport_guru_diagram_pengetahuan_keterampilan']);
+
+    // Room Chat
+    $routes->get('room-chat', 'RoomChatController::index', ['as' => 'room_chat_index']);
+    $routes->post('room-chat-group', 'RoomChatController::room_chat_group', ['as' => 'room_chat_group']);
+    $routes->post('room-chat-siswa', 'RoomChatController::room_chat_siswa', ['as' => 'room_chat_siswa']);
 
 });
 

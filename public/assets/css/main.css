@@ -1,3 +1,38 @@
+.message-row {
+  margin-bottom: 0.1rem;
+  margin-top: 0.2rem;
+  display: flex;
+  /* Align the avatar and the message centrally, but if the message's height
+     is greater than the avatar we will align it to the top
+     -- See Avatar.template for how this is achieved */
+  align-items: center;
+}
+
+.message {    
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  background-color: white;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 500px;
+  padding: 4px;
+  font-weight: 500;    
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+  margin-bottom: 10px;
+}
+
+.by-me .message {
+  background-color: #cfe9ba;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 4.5rem;
+  background-color: #009688;
+  flex-shrink: 0;
+}
 /* DayGridView
 --------------------------------------------------------------------------------------------------*/
 /* day row structure */

@@ -51,6 +51,7 @@
                                                 <a href="<?= route_to('raport_guru_saran', $value->id_siswa_kelas) ?>" class="btn btn-warning btn-sm mt-1">Saran</a>
                                                 <a href="<?= route_to('raport_guru_prestasi',$value->id_siswa_kelas) ?>" class="btn btn-secondary btn-sm mt-1">Prestasi</a>
                                                 <a href="<?= route_to('raport_guru_ketidakhadiran',$value->id_siswa_kelas) ?>" class="btn btn-danger btn-sm mt-1">Ketidakhadiran</a>
+                                                <a href="<?= route_to('raport_guru_diagram_pengetahuan_keterampilan', $value->id_siswa_kelas) ?>" class="btn btn-light btn-sm mt-1"><i class="las la-chart-area"></i>Diagram</a>
                                             </td>
                                         </tr>
                                     <?php } ?>

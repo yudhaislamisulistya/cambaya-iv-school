@@ -86,8 +86,9 @@
                                                     <td>
                                                         <input type="text" class="form-control" name="p_predikat[<?= $key-1 ?>]" readonly value="<?= getPredikatByNilai($p_rata_rata_nilai) ?>">
                                                     </td>
+
                                                     <td>
-                                                        <input type="text" class="form-control" name="p_deskripsi[<?= $key-1 ?>]" placeholder="Keterangan" value="<?= getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($data['id_siswa_kelas'], $value->id_mata_pelajaran)['p_deskripsi'] ?>">
+                                                        <input type="text" class="form-control" name="p_deskripsi[<?= $key-1 ?>]" placeholder="Keterangan" value="<?= getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($data['id_siswa_kelas'], $value->id_mata_pelajaran) == NULL ? 'Tidak ada Keterangan' :  getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($data['id_siswa_kelas'], $value->id_mata_pelajaran)['p_deskripsi']?>">
                                                     </td>
                                                     <td>
                                                         <input type="text" class="form-control" name="k_nilai[<?= $key-1 ?>]" readonly value="<?= $k_rata_rata_nilai ?>">
@@ -96,7 +97,7 @@
                                                         <input type="text" class="form-control" name="k_predikat[<?= $key-1 ?>]" readonly value="<?= getPredikatByNilai($k_rata_rata_nilai) ?>">
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="k_deskripsi[<?= $key-1 ?>]" placeholder="Keterangan" value="<?= getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($data['id_siswa_kelas'], $value->id_mata_pelajaran)['k_deskripsi'] ?>">
+                                                        <input type="text" class="form-control" name="k_deskripsi[<?= $key-1 ?>]" placeholder="Keterangan" value="<?= getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($data['id_siswa_kelas'], $value->id_mata_pelajaran) == NULL ? 'Tidak ada Keterangan' :  getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($data['id_siswa_kelas'], $value->id_mata_pelajaran)['k_deskripsi']?>">
                                                     </td>
                                                 </tr>
                                             <?php } ?>

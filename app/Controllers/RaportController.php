@@ -170,4 +170,10 @@ class RaportController extends BaseController
             return redirect()->back()->with('status', 'failed');
         }
     }
+    public function diagram_pengetahuan_keterampilan($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('guru/raport-diagram-pengetahuan-keterampilan', compact('data', 'id_kelas', 'id_semester'));
+    }
 }

@@ -49,93 +49,10 @@
                             </div>
                         </li>
                         <li class="nav-item nav-icon dropdown">
-                            <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="<?= route_to('room_chat_index') ?>">
                                 <i class="ri-mail-line  bg-orange p-2 rounded-small"></i>
                                 <span class="bg-primary"></span>
                             </a>
-                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <div class="card shadow-none m-0">
-                                    <div class="card-body p-0 ">
-                                        <div class="cust-title p-3">
-                                            <h5 class="mb-0">Semua Pesan</h5>
-                                        </div>
-                                        <div class="p-3">
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/01.jpg" alt="01">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-mr-3 rtl-ml-0">
-                                                        <h6 class="mb-0">Barry Emma Watson <small
-                                                                class="badge badge-success float-right rtl-mr-1">New</small>
-                                                        </h6>
-                                                        <small class="float-left font-size-12">12:00 PM</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/02.jpg" alt="02">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-ml-0 rtl-mr-3">
-                                                        <h6 class="mb-0 ">Lorem Ipsum Watson</h6>
-                                                        <small class="float-left font-size-12">20 Apr</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/03.jpg" alt="03">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-mr-3 rtl-ml-0">
-                                                        <h6 class="mb-0 ">Why do we use it? <small
-                                                                class="badge badge-success float-right rtl-mr-1">New</small>
-                                                        </h6>
-                                                        <small class="float-left font-size-12">1:24 PM</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/04.jpg" alt="04">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-ml-0 rtl-mr-3">
-                                                        <h6 class="mb-0">Variations Passages <small
-                                                                class="badge badge-success float-right rtl-mr-1">New</small>
-                                                        </h6>
-                                                        <small class="float-left font-size-12">5:45 PM</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/05.jpg" alt="05">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-mr-3 rtl-ml-0">
-                                                        <h6 class="mb-0 ">Lorem Ipsum generators</h6>
-                                                        <small class="float-left font-size-12">1 day ago</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <a class="right-ic btn btn-primary btn-block position-relative p-2" href="#"
-                                            role="button">
-                                            <div class="dd-icon"><i class="las la-arrow-right mr-0"></i></div>
-                                            View All
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                         </li>
                         <li class="nav-item nav-icon dropdown">
                             <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton"
