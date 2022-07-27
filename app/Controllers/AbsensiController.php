@@ -52,6 +52,7 @@ class AbsensiController extends BaseController
                         "status" => $data['absensi_kelas_siswa'][$i][$j],
                     ]);
                 }
+                $this->TrsiswaKelasModel->set(['hadir' => $data['hadir'][$i], 'izin' => $data['izin'][$i], 'alpha' => $data['alpha'][$i], 'sakit' => $data['sakit'][$i]])->where(['id_siswa' => $data['id_siswa'][$i], 'id_semester' => $data['id_semester'], 'id_kelas' => $data['id_kelas']])->update();
             }
             return redirect()->back()->with('status', 'success');
         } catch (\Exception $th) {

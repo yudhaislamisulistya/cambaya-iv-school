@@ -37,6 +37,7 @@ class TrSiswaKelasModel extends Model
         'pmr_dan_dokcil',
         'saran',
         'hadir',
+        'izin',
         'alpha',
         'sakit',
     ];

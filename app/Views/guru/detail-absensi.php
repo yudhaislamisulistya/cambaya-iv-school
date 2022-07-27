@@ -107,15 +107,21 @@
                                                     <td></td>
                                                     <td></td>
                                                 <?php }else{ ?>
-                                                    <td><?= count(getTrAbsensiSiswaKelasByStatus('Hadir', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></td>
-                                                    <td><?= count(getTrAbsensiSiswaKelasByStatus('Izin', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></td>
-                                                    <td><?= count(getTrAbsensiSiswaKelasByStatus('Alpha', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></td>
-                                                    <td><?= count(getTrAbsensiSiswaKelasByStatus('Sakit', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></td>
+                                                    <td><span class="badge badge-primary"><?= count(getTrAbsensiSiswaKelasByStatus('Hadir', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></span></td>
+                                                    <td><span class="badge badge-warning"><?= count(getTrAbsensiSiswaKelasByStatus('Izin', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></span></td>
+                                                    <td><span class="badge badge-danger"><?= count(getTrAbsensiSiswaKelasByStatus('Alpha', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></span></td>
+                                                    <td><span class="badge badge-secondary"><?= count(getTrAbsensiSiswaKelasByStatus('Sakit', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?></span></td>
+                                                    <input type="hidden" name="hadir[<?= $key-1 ?>]" value="<?= count(getTrAbsensiSiswaKelasByStatus('Hadir', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?>">
+                                                    <input type="hidden" name="izin[<?= $key-1 ?>]" value="<?= count(getTrAbsensiSiswaKelasByStatus('Izin', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?>">
+                                                    <input type="hidden" name="alpha[<?= $key-1 ?>]" value="<?= count(getTrAbsensiSiswaKelasByStatus('Alpha', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?>">
+                                                    <input type="hidden" name="sakit[<?= $key-1 ?>]" value="<?= count(getTrAbsensiSiswaKelasByStatus('Sakit', $value->id_siswa, getTrAbsensiSiswaKelasByKodeAbsensiOne( getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester)['kode_absensi'])['kode_absensi_siswa_kelas'])) ?>">
                                                 <?php } ?>
                                             </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
+                                    <input type="hidden" name="id_kelas" value="<?= $id_kelas ?>">
+                                    <input type="hidden" name="id_semester" value="<?= $id_semester ?>">
                                         <input type="hidden" name="jumlah_absensi" value="<?= count(getTrAbsensiKelas($id_mata_pelajaran, $id_kelas, $id_semester)) ?>">
                                         <button class="btn btn-info btn-update"><i class="las la-check"></i>
                                             Simpan</button>
