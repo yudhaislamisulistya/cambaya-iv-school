@@ -199,6 +199,17 @@ $routes->group('siswa', function($routes){
     // Manajemen Nilai Nilai Keterampilan
     $routes->get('nilai-keterampilan', 'NilaiKeterampilanController::index_siswa', ['as' => 'nilai_keterampilan_siswa_index']);
     $routes->get('nilai-keterampilan/detail/(:any)/(:any)/(:any)', 'NilaiKeterampilanController::detail_siswa/$1/$2/$3', ['as' => 'nilai_keterampilan_siswa_detail']);
+
+    // Manajemen Raport
+    $routes->get('raport', 'RaportController::index_siswa', ['as' => 'raport_siswa_index']);
+    $routes->get('raport/kompetensi-keahlian/(:any)', 'RaportController::kompetensi_keahlian_siswa/$1', ['as' => 'raport_siswa_kompetensi_keahlian']);
+    $routes->get('raport/ektrakurikuler/(:any)', 'RaportController::ekstrakurikuler_siswa/$1', ['as' => 'raport_siswa_ekstrakurikuler']);
+    $routes->get('raport/saran/(:any)', 'RaportController::saran_siswa/$1', ['as' => 'raport_siswa_saran']);
+    $routes->get('raport/pengetahuan-keterampilan/(:any)', 'RaportController::pengetahuan_keterampilan_siswa/$1', ['as' => 'raport_siswa_pengetahuan_keterampilan']);
+    $routes->get('raport/prestasi/(:any)', 'RaportController::prestasi_siswa/$1', ['as' => 'raport_siswa_prestasi']);
+    $routes->get('raport/ketidakhadiran/(:any)', 'RaportController::ketidakhadiran_siswa/$1', ['as' => 'raport_siswa_ketidakhadiran']);
+    $routes->get('raport/diagram-pengetahuan-keterampilan/(:any)', 'RaportController::diagram_pengetahuan_keterampilan_siswa/$1', ['as' => 'raport_siswa_diagram_pengetahuan_keterampilan']);
+
 });
 
 /*

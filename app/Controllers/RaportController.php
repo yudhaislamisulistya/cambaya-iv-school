@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KelasModel;
+use App\Models\SiswaModel;
 use App\Models\TrSiswaKelasModel;
 use App\Models\TrSiswaPengetahuanKeterampilanModel;
 use App\Models\TrSiswaPrestasiModel;
@@ -15,6 +16,7 @@ class RaportController extends BaseController
         $this->TrsiswaKelasModel = new TrSiswaKelasModel();
         $this->TrsiswaPengetahuanKeterampilanModel = new TrSiswaPengetahuanKeterampilanModel();
         $this->TrsiswaPrestasiModel = new TrSiswaPrestasiModel();
+        $this->siswaModel = new SiswaModel();
     }
     public function index(){
         $id_guru = getGuruByIdUser(session()->get('id_user'))['id_guru'];
@@ -175,5 +177,54 @@ class RaportController extends BaseController
         $id_kelas = $data['id_kelas'];
         $id_semester = $data['id_semester'];
         return view('guru/raport-diagram-pengetahuan-keterampilan', compact('data', 'id_kelas', 'id_semester'));
+    }
+
+    // Role Siswa
+    public function index_siswa(){
+        $id_siswa = $this->siswaModel->where('id_user', session()->get('id_user'))->first()['id_siswa'];
+        $data = $this->TrsiswaKelasModel->where('id_siswa', $id_siswa)->get()->getResult();
+        return view('siswa/raport', compact('data'));
+    }
+    public function diagram_pengetahuan_keterampilan_siswa($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('siswa/raport-diagram-pengetahuan-keterampilan', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function ketidakhadiran_siswa($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('siswa/raport-ketidakhadiran', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function prestasi_siswa($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('siswa/raport-prestasi', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function pengetahuan_keterampilan_siswa($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('siswa/raport-pengetahuan-keterampilan', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function saran_siswa($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('siswa/raport-saran', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function ekstrakurikuler_siswa($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('siswa/raport-ekstrakurikuler', compact('data', 'id_kelas', 'id_semester'));
+    }
+    public function kompetensi_keahlian_siswa($id_siswa_kelas){
+        $data = $this->TrsiswaKelasModel->where('id_siswa_kelas', $id_siswa_kelas)->first();
+        $id_kelas = $data['id_kelas'];
+        $id_semester = $data['id_semester'];
+        return view('siswa/raport-kompetensi-keahlian', compact('data', 'id_kelas', 'id_semester'));
     }
 }

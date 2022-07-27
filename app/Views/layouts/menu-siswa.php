@@ -43,16 +43,8 @@
             <span id="sidebar-bottom" class="font-weight-bold">Manajemen Raport</span>
         </li>
         <li class=" ">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('raport_siswa_index') ?>">
                 <i class="las la-book-open"></i><span>Raport</span>
-            </a>
-        </li>
-        <li class="mt-2 mb-2">
-            <span id="sidebar-bottom" class="font-weight-bold">Manajemen Diagram</span>
-        </li>
-        <li class=" ">
-            <a href="../backend/index.html">
-                <i class="la la-bar-chart"></i><span>Digram</span>
             </a>
         </li>
     </ul>
