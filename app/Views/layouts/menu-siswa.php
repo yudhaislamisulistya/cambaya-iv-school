@@ -1,7 +1,7 @@
 <nav class="iq-sidebar-menu">
     <ul id="iq-sidebar-toggle" class="iq-menu">
         <li class="active">
-            <a href="../backend/index.html">
+            <a href="<?= route_to('dashboard_siswa_index') ?>">
                 <i class="lab la-blogger-b"></i><span>Dashboard</span>
             </a>
         </li>

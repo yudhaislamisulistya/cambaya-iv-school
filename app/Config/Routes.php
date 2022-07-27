@@ -129,7 +129,7 @@ $routes->group('guru', function($routes){
 
     // Manajemen Absensi
     $routes->get('absensi', 'AbsensiController::guru_index', ['as' => 'absensi_guru_index']);
-    $routes->get('absensi/detail/(:any)/(:any)', 'AbsensiController::guru_detail/$1/$2', ['as' => 'absensi_guru_detail']);
+    $routes->get('absensi/detail/(:any)/(:any)/(:any)', 'AbsensiController::guru_detail/$1/$2/$3', ['as' => 'absensi_guru_detail']);
     $routes->post('absensi/add', 'AbsensiController::guru_add', ['as' => 'absensi_guru_add']);
     $routes->post('absensi/save', 'AbsensiController::guru_save', ['as' => 'absensi_guru_save']);
     $routes->post('absensi/update', 'AbsensiController::guru_update', ['as' => 'absensi_guru_update']);
@@ -209,6 +209,11 @@ $routes->group('siswa', function($routes){
     $routes->get('raport/prestasi/(:any)', 'RaportController::prestasi_siswa/$1', ['as' => 'raport_siswa_prestasi']);
     $routes->get('raport/ketidakhadiran/(:any)', 'RaportController::ketidakhadiran_siswa/$1', ['as' => 'raport_siswa_ketidakhadiran']);
     $routes->get('raport/diagram-pengetahuan-keterampilan/(:any)', 'RaportController::diagram_pengetahuan_keterampilan_siswa/$1', ['as' => 'raport_siswa_diagram_pengetahuan_keterampilan']);
+
+    // Room Chat
+    $routes->get('room-chat', 'RoomChatController::index_siswa', ['as' => 'room_chat_index_siswa']);
+    $routes->post('room-chat-group', 'RoomChatController::room_chat_group_siswa', ['as' => 'room_chat_group_siswa']);
+    $routes->post('room-chat-siswa', 'RoomChatController::room_chat_guru_siswa', ['as' => 'room_chat_guru_siswa']);
 
 });
 

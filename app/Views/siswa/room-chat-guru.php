@@ -17,7 +17,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="mb-3">Room Chat Group Kelas <?= getKelasById($id_kelas)['kelas'] ?></h3>
+                        <h3 class="mb-3">Room Chat Guru</h3>
                     </div>
                     <div class="card-body text-left">
                             <div id="talkjs-container" style="width: 100%; height: 700px">
@@ -48,26 +48,19 @@ s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.h
         appId: 'toAgqg4m',
         me: me,
     });
-    <?php foreach ($siswa_kelas as $key => $value) { ?>
-            var other<?=++$key;?> = new Talk.User({
-                    id: (<?= $value->id_siswa_kelas ?>),
-                    name: "<?= getUserById(getSiswaByIdSiswa($value->id_siswa)['id_user'])['nama_lengkap'] ?>",
-            });
-    <?php } ?>
-
-    var conversation = window.talkSession.getOrCreateConversation("<?= $id_kelas ?>");
-    conversation.setParticipant(me);
-    <?php foreach ($siswa_kelas as $key => $value) { ?>
-            conversation.setParticipant(other<?=++$key;?>);
-    <?php } ?>
-    conversation.setAttributes({
-        subject: "<?= getKelasById($id_kelas)['kelas'] ?> (<?= getKelasById($id_kelas)['wali_kelas'] ?>)"
+    var other = new Talk.User({
+        id: (<?= $guru['id_user'] ?>),
+        name: "<?= getUserById($guru['id_user'])['nama_lengkap'] ?> (<?= $guru['nip'] ?>)",
     });
 
-    var chatbox = talkSession.createChatbox();
-    chatbox.select(conversation);
-    chatbox.mount(document.getElementById("talkjs-container"));
+    var conversation = talkSession.getOrCreateConversation(
+        Talk.oneOnOneId(me, other)
+    );
+    conversation.setParticipant(me);
+    conversation.setParticipant(other);
 
+    var inbox = talkSession.createInbox({ selected: conversation });
+    inbox.mount(document.getElementById('talkjs-container'));
     });
 </script>
 <?= $this->endSection() ?>

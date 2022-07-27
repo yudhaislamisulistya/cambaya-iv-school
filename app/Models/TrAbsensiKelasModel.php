@@ -15,6 +15,7 @@ class TrAbsensiKelasModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'id_mata_pelajaran',
         'id_kelas',
         'id_semester',
         'kode_absensi',

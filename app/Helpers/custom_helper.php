@@ -87,9 +87,15 @@ function getSiswa(){
     return $data;
 }
 
-function getTrAbsensiKelas($id_kelas, $id_semester){
+function getTrAbsensiKelas($id_mata_pelajaran, $id_kelas, $id_semester){
     $trAbsensiKelasModel = new TrAbsensiKelasModel();
-    $data = $trAbsensiKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+    $data = $trAbsensiKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester, 'id_mata_pelajaran' => $id_mata_pelajaran])->get()->getResult();
+    return $data;
+}
+
+function getTrAbsensiKelasOne($id_mata_pelajaran, $id_kelas, $id_semester){
+    $trAbsensiKelasModel = new TrAbsensiKelasModel();
+    $data = $trAbsensiKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester, 'id_mata_pelajaran' => $id_mata_pelajaran])->first();
     return $data;
 }
 
@@ -238,6 +244,18 @@ function getTrSiswaPengetahuanKeterampilanByIdSiswaKelasMataPelajaran($id_siswa_
 function getTrSiswaPrestasi(){
     $trSiswaPrestasiModel = new TrSiswaPrestasiModel();
     $data = $trSiswaPrestasiModel->get()->getResult();
+    return $data;
+}
+
+function getMataPelajaranByIdKelas($id_kelas){
+    $mataPelajaranModel = new MataPelajaranModel();
+    $data = $mataPelajaranModel->where('id_kelas', $id_kelas)->get()->getResult();
+    return $data;
+}
+
+function getTrAbsensiSiswaKelasByKodeAbsensiOne($kode_absensi){
+    $trAbsensiSiswaKelasModel = new TrAbsensiSiswaKelasModel();
+    $data = $trAbsensiSiswaKelasModel->where('kode_absensi', $kode_absensi)->first();
     return $data;
 }
 

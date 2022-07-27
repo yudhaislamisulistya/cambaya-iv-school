@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KelasModel;
+use App\Models\MataPelajaranModel;
 use App\Models\TrAbsensiKelas;
 use App\Models\TrAbsensiKelasModel;
 use App\Models\TrAbsensiSiswaKelasModel;
@@ -13,26 +14,28 @@ class AbsensiController extends BaseController
 {
     public function __construct(){
         $this->kelasModel = new KelasModel();
+        $this->mataPelajaranModel = new MataPelajaranModel();
         $this->TrabsensiKelasModel = new TrAbsensiKelasModel();
         $this->TrsiswaKelasModel = new TrSiswaKelasModel();
         $this->TrabsensiSiswaKelasModel = new TrAbsensiSiswaKelasModel();
     }
     public function index()
     {
-        $data = $this->kelasModel->get()->getResult();
+        $data = $this->mataPelajaranModel->get()->getResult();
         return view('admin/absensi', compact('data'));
     }
-    public function detail($id_kelas, $id_semester){
-        return view('admin/detail-absensi', compact('id_kelas', 'id_semester'));
+    public function detail($id_mata_pelajaran, $id_kelas, $id_semester){
+        $data = $this->TrsiswaKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
+        return view('admin/detail-absensi', compact('data', 'id_mata_pelajaran', 'id_kelas', 'id_semester'));
     }
     public function guru_index(){
-        $data = $this->kelasModel->get()->getResult();
+        $data = $this->mataPelajaranModel->get()->getResult();
         return view('guru/absensi', compact('data'));
     }
-    public function guru_detail($id_kelas, $id_semester){
+    public function guru_detail($id_mata_pelajaran, $id_kelas, $id_semester){
         $data = $this->TrsiswaKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->get()->getResult();
-        $kode_absensi = $this->TrabsensiKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->first()['kode_absensi'];
-        return view('guru/detail-absensi', compact('data', 'id_kelas', 'id_semester', 'kode_absensi'));
+        // $kode_absensi = $this->TrabsensiKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester])->first()['kode_absensi'];
+        return view('guru/detail-absensi', compact('data', 'id_kelas', 'id_mata_pelajaran', 'id_semester'));
     }
 
     public function guru_update(){

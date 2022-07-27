@@ -57,7 +57,7 @@
                                 <div class="image"><img src="<?= base_url() ?>/assets/images/side-bkg.png" class="img-fluid" alt="side-bkg">
                                 </div>
                                 <h5 class="mb-3 text-white mt-3">Did you Know ?</h5>
-                                <p class="mb-0 text-white">You can add additional user in your Account's Settings</p>
+                                <p class="mb-0 text-white">Cambaya has coming...</p>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 text-right ">
-                    Copyright 2020 <a href="#">Insta Dash</a> All Rights Reserved.
+                    Copyright 2020 <a href="#">Cambaya IV</a> All Rights Reserved.
                 </div>
             </div>
         </div>

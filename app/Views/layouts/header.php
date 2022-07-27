@@ -49,86 +49,19 @@
                             </div>
                         </li>
                         <li class="nav-item nav-icon dropdown">
-                            <a href="<?= route_to('room_chat_index') ?>">
-                                <i class="ri-mail-line  bg-orange p-2 rounded-small"></i>
-                                <span class="bg-primary"></span>
-                            </a>
+                            <?php if (session()->get('role') == 2) { ?>
+                                <a href="<?= route_to('room_chat_index') ?>">
+                                    <i class="ri-mail-line  bg-orange p-2 rounded-small"></i>
+                                    <span class="bg-primary"></span>
+                                </a>
+                            <?php }else if(session()->get('role') == 1){ ?>
+                                <a href="<?= route_to('room_chat_index_siswa') ?>">
+                                    <i class="ri-mail-line  bg-orange p-2 rounded-small"></i>
+                                    <span class="bg-primary"></span>
+                                </a>
+                            <?php } ?> 
                         </li>
-                        <li class="nav-item nav-icon dropdown">
-                            <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-notification-line bg-info p-2 rounded-small"></i>
-                                <span class="bg-primary "></span>
-                            </a>
-                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="card shadow-none m-0">
-                                    <div class="card-body p-0 ">
-                                        <div class="cust-title p-3">
-                                            <h5 class="mb-0">Semua Notifikasi</h5>
-                                        </div>
-                                        <div class="p-3">
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/01.jpg" alt="01">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-ml-0 rtl-mr-3">
-                                                        <h6 class="mb-0">Emma Watson Barry <small
-                                                                class="badge badge-success float-right rtl-mr-1">New</small>
-                                                        </h6>
-                                                        <p class="mb-0">95 MB</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/02.jpg" alt="02">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-mr-3 rtl-ml-0">
-                                                        <h6 class="mb-0 ">New customer is join</h6>
-                                                        <p class="mb-0 ">Cyst Barry</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/03.jpg" alt="03">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-ml-0 rtl-mr-3">
-                                                        <h6 class="mb-0 ">Two customer is left</h6>
-                                                        <p class="mb-0">Cyst Barry</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="media align-items-center">
-                                                    <div class>
-                                                        <img class="avatar-40 rounded-small"
-                                                            src="<?= base_url() ?>/assets/images/04.jpg" alt="04">
-                                                    </div>
-                                                    <div class="media-body ml-3 rtl-mr-3 rtl-ml-0">
-                                                        <h6 class="mb-0 ">New Mail from Fenny <small
-                                                                class="badge badge-success float-right">New</small>
-                                                        </h6>
-                                                        <p class="mb-0">Cyst Barry</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <a class="right-ic btn btn-primary btn-block position-relative p-2" href="#"
-                                            role="button">
-                                            <div class="dd-icon"><i class="las la-arrow-right mr-0"></i></div>
-                                            View All
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+
                         <li class="nav-item iq-full-screen"><a href="#" class id="btnFullscreen"><i
                                     class="ri-fullscreen-line"></i></a></li>
                         <li class="caption-content">
@@ -149,115 +82,24 @@
                                             <div class="profile-header">
                                                 <div class="cover-container ">
                                                     <div class="media align-items-center mb-4">
-                                                        <img src="<?= base_url() ?>/assets/images/1.jpg"
-                                                            alt="profile-bg" class="rounded img-fluid avatar-80">
                                                         <div class="media-body profile-detail ml-3 rtl-mr-3 rtl-ml-0">
-                                                            <h3>Bill Yerds</h3>
+                                                            <h3><?= session()->get('nama_lengkap') ?></h3>
                                                             <div class="d-flex flex-wrap">
-                                                                <p class="mb-1">Web designer</p><a
+                                                                <p class="mb-1">
+                                                                    <?php  if(session()->get('role') == 3){ ?>
+                                                                        Admin
+                                                                    <?php  } else if(session()->get('role') == 2){ ?>
+                                                                        Guru
+                                                                    <?php  } else if(session()->get('role') == 1){ ?>
+                                                                        Siswa
+                                                                    <?php  } ?>
+                                                                </p><a
                                                                     href="<?= route_to('otentikasi_logout') ?>"
                                                                     class=" ml-3 rtl-mr-3 rtl-ml-0">Sign Out</a>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6  col-6 pr-0">
-                                                        <div class="profile-details text-center">
-                                                            <a href="../app/user-profile.html"
-                                                                class="iq-sub-card bg-primary-light rounded-small p-2">
-                                                                <div class="rounded iq-card-icon-small">
-                                                                    <i class="ri-file-user-line"></i>
-                                                                </div>
-                                                                <h6 class="mb-0 ">My Profile</h6>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6  col-md-6 col-6">
-                                                        <div class="profile-details text-center">
-                                                            <a href="../app/user-profile-edit.html"
-                                                                class="iq-sub-card bg-danger-light rounded-small p-2">
-                                                                <div class="rounded iq-card-icon-small">
-                                                                    <i class="ri-profile-line"></i>
-                                                                </div>
-                                                                <h6 class="mb-0 ">Edit Profile</h6>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6  col-6 pr-0">
-                                                        <div class="profile-details text-center">
-                                                            <a href="../app/user-account-setting.html"
-                                                                class="iq-sub-card bg-success-light rounded-small p-2">
-                                                                <div class="rounded iq-card-icon-small">
-                                                                    <i class="ri-account-box-line"></i>
-                                                                </div>
-                                                                <h6 class="mb-0 ">Account</h6>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6  col-6">
-                                                        <div class="profile-details text-center">
-                                                            <a href="../app/user-privacy-setting.html"
-                                                                class="iq-sub-card bg-info-light rounded-small p-2">
-                                                                <div class="rounded iq-card-icon-small">
-                                                                    <i class="ri-lock-line"></i>
-                                                                </div>
-                                                                <h6 class="mb-0 ">Settings</h6>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="personal-details">
-                                                    <h5 class="card-title mb-3 mt-3">Personal Details</h5>
-                                                    <div class="row align-items-center mb-2">
-                                                        <div class="col-sm-6">
-                                                            <h6>Birthday</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <p class="mb-0">3rd March</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row align-items-center mb-2">
-                                                        <div class="col-sm-6">
-                                                            <h6>Address</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <p class="mb-0">Landon</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row align-items-center mb-2">
-                                                        <div class="col-sm-6">
-                                                            <h6>Phone</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <p class="mb-0">(010)987 543 201</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row align-items-center mb-2">
-                                                        <div class="col-sm-6">
-                                                            <h6>Email</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <p class="mb-0">Barry@example.com</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row align-items-center mb-2">
-                                                        <div class="col-sm-6">
-                                                            <h6>Twitter</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <p class="mb-0">@Barry</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row align-items-center mb-2">
-                                                        <div class="col-sm-6">
-                                                            <h6>Facebook</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <p class="mb-0">@Barry_Tech</p>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="p-3"></div>
