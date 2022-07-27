@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\MataPelajaranModel;
+use App\Models\SiswaModel;
 use App\Models\TrNilaiKeterampilanKelasModel;
 use App\Models\TrNilaiKeterampilanSiswaKelasModel;
 use App\Models\TrSiswaKelasModel;
@@ -13,6 +14,7 @@ class NilaiKeterampilanController extends BaseController
     public function __construct()
     {
         $this->mataPelajaranModel = new MataPelajaranModel();
+        $this->siswaModel = new SiswaModel();
         $this->TrsiswaKelasModel = new TrSiswaKelasModel();
         $this->TrnilaiKeterampilanKelasModel = new TrNilaiKeterampilanKelasModel();
         $this->TrnilaiKeterampilanSiswaKelasModel = new TrNilaiKeterampilanSiswaKelasModel();
@@ -60,5 +62,19 @@ class NilaiKeterampilanController extends BaseController
             die();
             return redirect()->back()->with('status', 'failed');
         }
+    }
+
+    // Role Siswa
+    public function index_siswa(){
+        $id_siswa = $this->siswaModel->where('id_user', session()->get('id_user'))->first()['id_siswa'];
+        $id_kelas = $this->TrsiswaKelasModel->where(['id_siswa' => $id_siswa, 'id_semester' => getSemesterAktif()['id_semester']])->first()['id_kelas'];
+        $data = $this->mataPelajaranModel->where('id_kelas', $id_kelas)->get()->getResult();
+        return view('siswa/nilai-keterampilan', compact('data'));
+    }
+
+    public function detail_siswa($id_mata_pelajaran, $id_kelas, $id_semester){
+        $id_siswa = $this->siswaModel->where('id_user', session()->get('id_user'))->first()['id_siswa'];
+        $data = $this->TrsiswaKelasModel->where(['id_kelas' => $id_kelas, 'id_semester' => $id_semester, 'id_siswa' => $id_siswa])->get()->getResult();
+        return view('siswa/detail-nilai-keterampilan', compact('data', 'id_mata_pelajaran','id_kelas', 'id_semester'));
     }
 }

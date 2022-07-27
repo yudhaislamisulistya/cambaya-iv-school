@@ -184,6 +184,21 @@ $routes->group('siswa', function($routes){
     $routes->get('dashboard', 'BerandaController::siswa_dashboard', ['as' => 'dashboard_siswa_index']);
 
     $routes->get('data-siswa', 'SiswaController::data_siswa' , ['as' => 'data_siswa_siswa_index']);
+
+    // Manajemen Jadwal Mata Pelajaran
+    $routes->get('jadwal-mata-pelajaran', 'JadwalMataPelajaranController::index_siswa', ['as' => 'jadwal_mata_pelajaran_siswa_index']);
+    $routes->get('jadwal-mata-pelajaran/(:any)/(:any)', 'JadwalMataPelajaranController::detail_siswa/$1/$2', ['as' => 'jadwal_mata_pelajaran_siswa_detail']);
+
+    // Manajemen Jadwal Ujian
+    $routes->get('jadwal-ujian', 'JadwalUjianController::index_siswa', ['as' => 'jadwal_ujian_siswa_index']);
+
+    // Manejemen Nilai Pengetahuan
+    $routes->get('nilai-pengetahuan', 'NilaiPengetahuanController::index_siswa', ['as' => 'nilai_pengetahuan_siswa_index']);
+    $routes->get('nilai-pengetahuan/detail/(:any)/(:any)/(:any)', 'NilaiPengetahuanController::detail_siswa/$1/$2/$3', ['as' => 'nilai_pengetahuan_siswa_detail']);
+
+    // Manajemen Nilai Nilai Keterampilan
+    $routes->get('nilai-keterampilan', 'NilaiKeterampilanController::index_siswa', ['as' => 'nilai_keterampilan_siswa_index']);
+    $routes->get('nilai-keterampilan/detail/(:any)/(:any)/(:any)', 'NilaiKeterampilanController::detail_siswa/$1/$2/$3', ['as' => 'nilai_keterampilan_siswa_detail']);
 });
 
 /*
