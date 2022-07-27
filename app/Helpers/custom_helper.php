@@ -14,6 +14,7 @@ use App\Models\TrNilaiPengetahuanKelasModel;
 use App\Models\TrNilaiPengetahuanSiswaKelasModel;
 use App\Models\TrSiswaPengetahuanKeterampilanModel;
 use App\Models\TrSiswaPrestasiModel;
+use App\Models\UjianModel;
 
 function getGuru(){
     $guruModel = new GuruModel();
@@ -256,6 +257,18 @@ function getMataPelajaranByIdKelas($id_kelas){
 function getTrAbsensiSiswaKelasByKodeAbsensiOne($kode_absensi){
     $trAbsensiSiswaKelasModel = new TrAbsensiSiswaKelasModel();
     $data = $trAbsensiSiswaKelasModel->where('kode_absensi', $kode_absensi)->first();
+    return $data;
+}
+
+function getMataPelajaran(){
+    $mataPelajaranModel = new MataPelajaranModel();
+    $data = $mataPelajaranModel->get()->getResult();
+    return $data;
+}
+
+function getUjian(){
+    $ujianModel = new UjianModel();
+    $data = $ujianModel->get()->getResult();
     return $data;
 }
 

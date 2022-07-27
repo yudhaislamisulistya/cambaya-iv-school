@@ -17,6 +17,7 @@ class MataPelajaranModel extends Model
     protected $allowedFields    = [
         'id_guru',
         'id_kelas',
+        'id_semester',
         'mata_pelajaran',
         'hari',
         'jam_masuk',

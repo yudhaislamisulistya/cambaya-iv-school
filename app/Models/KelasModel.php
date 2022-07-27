@@ -16,6 +16,7 @@ class KelasModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'id_guru',
+        'id_semester',
         'kelas',
         'wali_kelas'
     ];
