@@ -105,7 +105,7 @@ $routes->group('admin', function ($routes){
 
     // Manajemen Absensi
     $routes->get('absensi', 'AbsensiController::index', ['as' => 'absensi_admin_index']);
-    $routes->get('absensi/detail/(:any)/(:any)', 'AbsensiController::detail/$1/$2', ['as' => 'absensi_admin_detail']);
+    $routes->get('absensi/detail/(:any)/(:any)/(:any)', 'AbsensiController::detail/$1/$2/$3', ['as' => 'absensi_admin_detail']);
     $routes->post('absensi/save', 'AbsensiController::save', ['as' => 'absensi_admin_save']);
     $routes->post('absensi/update', 'AbsensiController::update', ['as' => 'absensi_admin_update']);
     $routes->post('absensi/delete', 'AbsensiController::delete', ['as' => 'absensi_admin_delete']);
