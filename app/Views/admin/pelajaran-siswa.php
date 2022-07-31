@@ -76,7 +76,7 @@
                                                         >
                                                         <i class="las la-pen"></i>Edit</a>
                                                 <a href=" #" class="btn btn-danger btn-sm btn-delete"
-                                                        data-id="<?= $value->id_kelas?>"><i class="las la-trash"></i>Delete</a>
+                                                        data-id="<?= $value->id_mata_pelajaran?>"><i class="las la-trash"></i>Delete</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
