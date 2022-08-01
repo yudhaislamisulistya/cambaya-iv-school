@@ -106,6 +106,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="id_semester" value="<?= getSemesterAktif()['id_semester'] ?>">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
