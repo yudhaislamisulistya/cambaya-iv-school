@@ -35,7 +35,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Nilai Pengetahuan - List Mata Pelajaran</h4>
+                        <h4 class="card-title">Absensi - List Mata Pelajaran</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -61,7 +61,7 @@
                                         <td>
                                             <a href="<?= route_to('absensi_guru_detail', $value->id_mata_pelajaran, $value->id_kelas, getSemesterAktif()['id_semester']) ?>"
                                                 class="btn btn-success btn-sm">
-                                                <i class="las la-check"></i>Detail Nilai Pengetahuan</a>
+                                                <i class="las la-calendar"></i>Detail Absensi</a>
                                         </td>
                                     </tr>
                                     <?php } ?>
