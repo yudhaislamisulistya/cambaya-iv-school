@@ -18,4 +18,7 @@ class BerandaController extends BaseController
     public function siswa_dashboard(){
         return view('siswa/dashboard');
     }
+    public function landing_page(){
+        return view('landing-page');
+    }
 }

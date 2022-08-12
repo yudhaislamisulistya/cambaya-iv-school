@@ -29,7 +29,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Data Siswa -
+                        <h4 class="card-title">Data Siswa - <?= $id_semester ?>
                             <?= getUserById(getSiswaByIdSiswa($data['id_siswa'])['id_user'])['nama_lengkap'] ?>
                             (<?= getSiswaByIdSiswa($data['id_siswa'])['nis'] ?>)</h4>
                     </div>
@@ -74,8 +74,13 @@
 
                                                 <?php } ?>
                                                 <?php
-                                                    $p_rata_rata_nilai = $p_rata_rata_nilai / count(getTrNilaiPengetahuanKelasByIdMataPelajaranKelasSemester($value->id_mata_pelajaran, $id_kelas, $id_semester));
-                                                    $k_rata_rata_nilai = $k_rata_rata_nilai / count(getTrNilaiKeterampilanKelasByIdMataPelajaranKelasSemester($value->id_mata_pelajaran, $id_kelas, $id_semester));
+                                                    if ($p_rata_rata_nilai != 0) {
+                                                        $p_rata_rata_nilai = $p_rata_rata_nilai / count(getTrNilaiPengetahuanKelasByIdMataPelajaranKelasSemester($value->id_mata_pelajaran, $id_kelas, $id_semester));
+                                                    }
+                                                    if($k_rata_rata_nilai != 0){
+                                                        $k_rata_rata_nilai = $k_rata_rata_nilai / count(getTrNilaiKeterampilanKelasByIdMataPelajaranKelasSemester($value->id_mata_pelajaran, $id_kelas, $id_semester));
+                                                    }
+
                                                 ?>
                                                 <tr>
                                                     <td><?=  ++$key ?></td>

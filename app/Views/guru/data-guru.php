@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label>Nama Lengkap Guru</label>
                         <input type="text" class="form-control nama_lengkap" name="nama_lengkap"
-                            placeholder="Nama Lengkap Guru" value="<?= $data['nip'] ?>" readonly>
+                            placeholder="Nama Lengkap Guru" value="<?= getUserById($data['id_user'])['nama_lengkap'] ?>" readonly>
                     </div>
                     <div class="row">
                         <div class="col-md-6">

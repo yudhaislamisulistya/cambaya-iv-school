@@ -57,7 +57,9 @@
 
                     <?php } ?>
                     <?php
-                        $p_rata_rata_nilai = $p_rata_rata_nilai / count(getTrNilaiPengetahuanKelasByIdMataPelajaranKelasSemester($value->id_mata_pelajaran, $id_kelas, $id_semester));
+                        if($p_rata_rata_nilai != 0){
+                            $p_rata_rata_nilai = $p_rata_rata_nilai / count(getTrNilaiPengetahuanKelasByIdMataPelajaranKelasSemester($value->id_mata_pelajaran, $id_kelas, $id_semester));
+                        }
                     ?>
                     <?php
                         echo $p_rata_rata_nilai . ',';
@@ -77,7 +79,9 @@
                         ?>
                     <?php } ?>
                     <?php
+                    if($k_rata_rata_nilai != 0){
                         $k_rata_rata_nilai = $k_rata_rata_nilai / count(getTrNilaiKeterampilanKelasByIdMataPelajaranKelasSemester($value->id_mata_pelajaran, $id_kelas, $id_semester));
+                    }
                     ?>
                     <?php
                         echo $k_rata_rata_nilai . ',';

@@ -61,7 +61,7 @@
                                         <td>
                                             <a href="<?= route_to('nilai_keterampilan_guru_detail', $value->id_mata_pelajaran, $value->id_kelas, getSemesterAktif()['id_semester']) ?>"
                                                 class="btn btn-success btn-sm">
-                                                <i class="las la-check"></i>Detail Nilai Pengetahuan</a>
+                                                <i class="las la-check"></i>Detail Nilai Keterampilan</a>
                                         </td>
                                     </tr>
                                     <?php } ?>
